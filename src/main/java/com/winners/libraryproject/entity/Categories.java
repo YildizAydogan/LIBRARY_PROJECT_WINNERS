@@ -25,7 +25,6 @@ public class Categories {
 
 
 
-
     @Size(min= 2, max = 50)
     @NotNull(message = "Please enter a valid Name!")
     @Column(nullable = false)
