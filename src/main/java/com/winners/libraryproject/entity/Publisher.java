@@ -9,6 +9,8 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -38,7 +40,8 @@ public class Publisher {
 
 
 
-
+   /* @ManyToMany(fetch = FetchType.LAZY, mappedBy = "publishers")
+    private Set<Book> books = new HashSet<Book>();*/
 
 
 
