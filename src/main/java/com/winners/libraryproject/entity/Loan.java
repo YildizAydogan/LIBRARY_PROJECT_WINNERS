@@ -12,7 +12,6 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.sql.Timestamp;
 import java.util.Date;
 
 
@@ -25,7 +24,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 @Table(name="Loan")
-public class Loans {
+public class Loan {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
