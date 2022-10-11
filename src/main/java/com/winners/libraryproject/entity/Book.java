@@ -37,10 +37,10 @@ public class Book {
             @JoinColumn(name = "category_id") })
     private Set<Category> categories = new HashSet<Category>();
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "books_publishers", joinColumns = { @JoinColumn(name = "book_id") }, inverseJoinColumns = {
-            @JoinColumn(name = "publisher_id") })
-    private Set<Publisher> publishers = new HashSet<Publisher>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinTable(name = "books_publishers", joinColumns = { @JoinColumn(name = "book_id") },
+                                          inverseJoinColumns = {@JoinColumn(name = "publisher_id") })
+    private Set<Publisher> publishers = new HashSet<>();
 
     //----------------------------------------------------------------------------------------------------
 

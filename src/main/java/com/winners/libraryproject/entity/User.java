@@ -85,8 +85,14 @@ public class User {
     private Set<Role> roles = new HashSet<>();
 
     @JsonIgnore
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL)
     private Set<Loan> loans;
+
+
+
+
+
+
 
 
 }
