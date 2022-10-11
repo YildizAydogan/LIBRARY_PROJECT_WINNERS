@@ -40,8 +40,8 @@ public class Publisher {
 
 
 
-   /* @ManyToMany(fetch = FetchType.LAZY, mappedBy = "publishers")
-    private Set<Book> books = new HashSet<Book>();*/
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "publishers")
+    private Set<Book> books = new HashSet<Book>();
 
 
 
