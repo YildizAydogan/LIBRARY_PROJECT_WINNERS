@@ -12,6 +12,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.io.File;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 
 @NoArgsConstructor
@@ -27,16 +28,19 @@ public class Book {
 
     //-------------------------------RELATIONS------------------------------------------------------------
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "author_id", nullable = false)
+    @JoinColumn(name = "author_id", nullable = false,insertable = false, updatable = false)
     private Author author;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id", nullable = false)
+    @JoinColumn(name = "category_id", nullable = false,insertable = false, updatable = false)
     private Category category;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "publisher_id", nullable = false)
+    @JoinColumn(name = "publisher_id", nullable = false,insertable = false, updatable = false)
     private Publisher publisher;
+
+    @OneToMany(mappedBy = "bookId")
+    private Set<Loan> loans;
 
     //----------------------------------------------------------------------------------------------------
 
