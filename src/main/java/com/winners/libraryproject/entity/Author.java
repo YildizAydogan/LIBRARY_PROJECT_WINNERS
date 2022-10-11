@@ -23,7 +23,7 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "authors")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "author")
     private Set<Book> books = new HashSet<Book>();
 
 

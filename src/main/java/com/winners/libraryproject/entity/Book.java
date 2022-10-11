@@ -12,8 +12,8 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.io.File;
 import java.time.LocalDateTime;
-import java.util.HashSet;
 import java.util.Set;
+
 
 @NoArgsConstructor
 @Getter
@@ -27,20 +27,20 @@ public class Book {
     private Long id;
 
     //-------------------------------RELATIONS------------------------------------------------------------
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "books_authors", joinColumns = { @JoinColumn(name = "book_id") }, inverseJoinColumns = {
-            @JoinColumn(name = "author_id") })
-    private Set<Author> authors = new HashSet<Author>();
-
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "books_categories", joinColumns = { @JoinColumn(name = "book_id") }, inverseJoinColumns = {
-            @JoinColumn(name = "category_id") })
-    private Set<Category> categories = new HashSet<Category>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "author_id", nullable = false,insertable = false, updatable = false)
+    private Author author;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinTable(name = "books_publishers", joinColumns = { @JoinColumn(name = "book_id") },
-                                          inverseJoinColumns = {@JoinColumn(name = "publisher_id") })
-    private Set<Publisher> publishers = new HashSet<>();
+    @JoinColumn(name = "category_id", nullable = false,insertable = false, updatable = false)
+    private Category category;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "publisher_id", nullable = false,insertable = false, updatable = false)
+    private Publisher publisher;
+
+    @OneToMany(mappedBy = "bookId")
+    private Set<Loan> loans;
 
     //----------------------------------------------------------------------------------------------------
 
@@ -86,7 +86,7 @@ public class Book {
     @NotBlank(message = "Please provide not blank shelf code.")
     @NotNull(message = "Please provide your shelf code.")
     @Column(name = "shelf_code",length = 6,nullable = false)
-    @Pattern(regexp = "^([a-z\\-]{2})?\\d{3}$", message = "Please provide valid shelf code")
+    @Pattern(regexp = "^([A-Z\\-]{2})?\\d{3}$", message = "Please provide valid shelf code")
     private String shelfCode;
 
 

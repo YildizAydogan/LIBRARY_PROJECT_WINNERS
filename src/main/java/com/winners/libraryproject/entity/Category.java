@@ -37,16 +37,13 @@ public class Category {
     @Column(nullable = false)
     private Boolean builtIn = false;
 
-
-
-
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
     private Integer sequence;
 
 
-   /* @ManyToMany(fetch = FetchType.LAZY, mappedBy = "categories")
-    private Set<Book> books = new HashSet<Book>();*/
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
+    private Set<Book> books = new HashSet<Book>();
 
 
 }
