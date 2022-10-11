@@ -12,6 +12,7 @@ import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Set;
 
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -36,7 +37,6 @@ public class Publisher {
 
     @Column(nullable = false)
     private Boolean builtIn= false;
-
 
 
 

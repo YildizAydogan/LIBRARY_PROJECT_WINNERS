@@ -13,7 +13,8 @@ import javax.validation.constraints.Size;
 import java.io.File;
 import java.time.LocalDateTime;
 import java.util.Set;
-
+import java.util.HashSet;
+import java.util.Set;
 
 @NoArgsConstructor
 @Getter
@@ -86,7 +87,7 @@ public class Book {
     @NotBlank(message = "Please provide not blank shelf code.")
     @NotNull(message = "Please provide your shelf code.")
     @Column(name = "shelf_code",length = 6,nullable = false)
-    @Pattern(regexp = "^([A-Z\\-]{2})?\\d{3}$", message = "Please provide valid shelf code")
+    @Pattern(regexp = "^([a-z\\-]{2})?\\d{3}$", message = "Please provide valid shelf code")
     private String shelfCode;
 
 
