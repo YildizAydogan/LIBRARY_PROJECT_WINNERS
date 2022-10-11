@@ -42,7 +42,7 @@ public class Category {
     private Integer sequence;
 
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "categories")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
     private Set<Book> books = new HashSet<Book>();
 
 
