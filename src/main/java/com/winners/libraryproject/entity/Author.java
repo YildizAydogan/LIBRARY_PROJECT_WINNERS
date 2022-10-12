@@ -24,7 +24,7 @@ public class Author {
     private Long id;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "author")
-    private Set<Book> books = new HashSet<Book>();
+    private Set<Book> books ;
 
 
 

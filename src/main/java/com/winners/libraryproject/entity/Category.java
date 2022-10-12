@@ -43,7 +43,7 @@ public class Category {
 
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
-    private Set<Book> books = new HashSet<Book>();
+    private Set<Book> books ;
 
 
 }
