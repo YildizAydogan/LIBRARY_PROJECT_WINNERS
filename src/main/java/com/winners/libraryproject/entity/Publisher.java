@@ -38,10 +38,8 @@ public class Publisher {
     private Boolean builtIn= false;
 
 
-
-
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "publisher")
-    private Set<Book> books = new HashSet<Book>();
+    private Set<Book> books ;
 
 
 
