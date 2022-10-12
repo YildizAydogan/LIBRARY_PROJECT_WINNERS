@@ -3,6 +3,7 @@ package com.winners.libraryproject.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.winners.libraryproject.entity.enumeration.UserRole;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -37,7 +38,7 @@ public class User {
     @NotNull(message = "Please enter your lastName")
     private String lastName;
 
-    @Size(min = -2, max = +2)
+    //@Size(min = 0, max = 2)
     @NotNull(message = "Please enter your score")
     private Integer score = 0;
 
@@ -70,7 +71,7 @@ public class User {
     @Column(nullable = false)
     private LocalDateTime createDate;
 
-    @NotNull(message = "Please enter your password")
+    @NotNull(message = "Please enter your resetPasswordCode")
     @Column(nullable = false)
     private String resetPasswordCode;
 
