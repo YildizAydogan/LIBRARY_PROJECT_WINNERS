@@ -1,6 +1,8 @@
 package com.winners.libraryproject.entity;
 
 
+
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -40,10 +42,6 @@ public class Publisher {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "publisher")
     private Set<Book> books ;
-
-
-
-
 
 
 
