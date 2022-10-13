@@ -4,6 +4,8 @@ import com.winners.libraryproject.dto.UserDTO;
 import com.winners.libraryproject.entity.Role;
 import com.winners.libraryproject.entity.User;
 import com.winners.libraryproject.entity.enumeration.UserRole;
+import com.winners.libraryproject.payload.BadRequestException;
+import com.winners.libraryproject.payload.ConflictException;
 import com.winners.libraryproject.payload.ResourceNotFoundException;
 import com.winners.libraryproject.repository.RoleRepository;
 import com.winners.libraryproject.repository.UserRepository;
@@ -11,9 +13,11 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.security.auth.message.AuthException;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -66,4 +70,32 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
+    public void login(String email,String password) throws AuthException {
+        try {
+        User user= userRepository.findByEmail(email);
+
+        if (!user.getPassword().equals(password))
+            throw  new AuthException("invalid credentials");
+
+         }catch (Exception e){
+             throw new AuthException("invalid credentials");
+    }
+    }
+
+    public void updateUser(Long  id,UserDTO userDTO){
+        boolean emailExists = userRepository.existsByEmail(userDTO.getEmail());
+
+        Optional<User> userDetails=userRepository.findById(id);
+
+        if (userDetails.get().getBuiltIn()) {
+            throw new BadRequestException("You dont have permission to update user info!");
+        }
+
+        if (emailExists && !userDTO.getEmail().equals(userDetails.get().getEmail())){
+            throw new ConflictException("Error: Email is already in use!");
+        }
+
+       userRepository.update(id,userDTO.getFirstName(),userDTO.getLastName()
+                ,userDTO.getAddress(),userDTO.getPhone(),userDTO.getEmail(),userDTO.getResetPasswordCode());
+    }
 }
