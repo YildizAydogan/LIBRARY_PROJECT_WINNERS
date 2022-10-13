@@ -4,6 +4,7 @@ import com.winners.libraryproject.dto.UserDTO;
 import com.winners.libraryproject.entity.Role;
 import com.winners.libraryproject.entity.User;
 import com.winners.libraryproject.entity.enumeration.UserRole;
+import com.winners.libraryproject.payload.ResourceNotFoundException;
 import com.winners.libraryproject.repository.RoleRepository;
 import com.winners.libraryproject.repository.UserRepository;
 import lombok.AllArgsConstructor;
@@ -24,6 +25,7 @@ public class UserService {
 
     private final RoleRepository roleRepository;
 
+    private final static String USER_NOT_FOUND_MSG = "user with id %d not found";
 
 
     public void register(User user){
@@ -48,7 +50,8 @@ public class UserService {
     }
 
     public UserDTO findById(Long id){
-        User user = userRepository.findById(id).orElseThrow();
+        User user = userRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException(String.format(USER_NOT_FOUND_MSG, id)));
 
         UserDTO userDTO=new UserDTO();
         userDTO.setRoles(user.getRoles());
@@ -57,7 +60,8 @@ public class UserService {
 
 
     public void removeById(Long id){
-        User user = userRepository.findById(id).orElseThrow();
+        User user = userRepository.findById(id)
+                        .orElseThrow(() -> new ResourceNotFoundException(String.format(USER_NOT_FOUND_MSG, id)));
 
         userRepository.deleteById(id);
     }
