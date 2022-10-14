@@ -14,11 +14,13 @@ public interface UserRepository extends JpaRepository<User,Long> {
 
     Boolean existsByEmail(String email) throws ResourceNotFoundException;
 
-    @Modifying
+  /*  @Modifying
     @Query("UPDATE User u " +
             "SET u.firstName = ?2, u.lastName = ?3, u.address = ?5, " +
             "u.phone = ?6, u.email = ?8, u.resetPasswordCode = ?11 " +
             "WHERE u.id = ?1")
     void update(Long id, String firstName, String lastName, String address, String phone, String email,
                 String resetPasswordCode) throws BadRequestException;
+                */
+
 }

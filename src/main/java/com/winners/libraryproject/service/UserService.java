@@ -37,14 +37,15 @@ public class UserService {
         if (userRepository.existsByEmail(user.getEmail())){
             throw new ConflictException("Error: Email is already in use!");
         }
+
         LocalDateTime createDate=LocalDateTime.now();
 
         user.setCreateDate(createDate);
 
         Set<Role> roles = new HashSet<>();
-        Role customerRole = roleRepository.findByName(UserRole.ROLE_MEMBER);
+        Role memberRole = roleRepository.findByName(UserRole.ROLE_MEMBER);
 
-        roles.add(customerRole);
+        roles.add(memberRole);
 
         user.setRoles(roles);
 
@@ -85,7 +86,7 @@ public class UserService {
     }
     }
 
-    public void updateUser(Long  id,UserDTO userDTO){
+  /*  public void updateUser(Long  id,UserDTO userDTO){
         boolean emailExists = userRepository.existsByEmail(userDTO.getEmail());
 
         Optional<User> userDetails=userRepository.findById(id);
@@ -101,10 +102,20 @@ public class UserService {
        userRepository.update(id,userDTO.getFirstName(),userDTO.getLastName()
                 ,userDTO.getAddress(),userDTO.getPhone(),userDTO.getEmail(),userDTO.getResetPasswordCode());
     }
+*/
+
+    public void createdUser(User user){
+
+        if (userRepository.existsByEmail(user.getEmail())){
+            throw new ConflictException("Error: Email is already in use!");
+        }
+
+        LocalDateTime createDate=LocalDateTime.now();
+
+        user.setCreateDate(createDate);
 
 
-    public void createdUser(){
-
+        userRepository.save(user);
     }
 
     public void addLoans(){
@@ -115,5 +126,13 @@ public class UserService {
 
     }
 
+
+    public Set<Role> addRoles(String rol) {
+        Set<Role> roles = new HashSet<>();
+
+
+
+        return roles;
+    }
 
 }
