@@ -34,6 +34,9 @@ public class UserService {
 
     public void register(User user){
 
+        if (userRepository.existsByEmail(user.getEmail())){
+            throw new ConflictException("Error: Email is already in use!");
+        }
         LocalDateTime createDate=LocalDateTime.now();
 
         user.setCreateDate(createDate);
@@ -98,4 +101,19 @@ public class UserService {
        userRepository.update(id,userDTO.getFirstName(),userDTO.getLastName()
                 ,userDTO.getAddress(),userDTO.getPhone(),userDTO.getEmail(),userDTO.getResetPasswordCode());
     }
+
+
+    public void createdUser(){
+
+    }
+
+    public void addLoans(){
+
+    }
+
+    public void getUsersAllInformations(){
+
+    }
+
+
 }
