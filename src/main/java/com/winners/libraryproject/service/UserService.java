@@ -127,12 +127,6 @@ public class UserService {
     }
 
 
-    public Set<Role> addRoles(String rol) {
-        Set<Role> roles = new HashSet<>();
 
-
-
-        return roles;
-    }
 
 }
