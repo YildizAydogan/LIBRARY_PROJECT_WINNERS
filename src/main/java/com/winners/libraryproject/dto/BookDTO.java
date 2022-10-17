@@ -1,6 +1,7 @@
 package com.winners.libraryproject.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.winners.libraryproject.entity.Book;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -69,17 +70,17 @@ public class BookDTO {
     @Column(name ="builtIn", nullable = false)
     private Boolean builtIn;
 
-    public BookDTO(String name, String isbn, Long authorId, Long publisherId, Long categoryId, Boolean loanable, String shelfCode, Boolean active, Boolean featured, LocalDateTime createDate, Boolean builtIn) {
-        this.name = name;
-        this.isbn = isbn;
-        this.authorId = authorId;
-        this.publisherId = publisherId;
-        this.categoryId = categoryId;
-        this.loanable = loanable;
-        this.shelfCode = shelfCode;
-        this.active = active;
-        this.featured = featured;
-        this.createDate = createDate;
-        this.builtIn = builtIn;
+    public BookDTO(Book book){
+        this.name = book.getName();
+        this.isbn = book.getIsbn();
+        this.authorId =book.getAuthor().getId();
+        this.publisherId = book.getPublisher().getId();
+        this.categoryId = book.getCategory().getId();
+        this.loanable = book.getLoanable();
+        this.shelfCode = book.getShelfCode();
+        this.active = book.getActive();
+        this.featured = book.getFeatured();
+        this.createDate = book.getCreateDate();
+        this.builtIn = book.getBuiltIn();
     }
 }
