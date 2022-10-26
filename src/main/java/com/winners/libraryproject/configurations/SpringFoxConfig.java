@@ -25,7 +25,7 @@ public class SpringFoxConfig {
 
     private ApiInfo metaData() {
         return new ApiInfoBuilder()
-                .title("Car Rental Swagger Documentation")
+                .title("Library System Swagger Documentation")
                 .description("********")
                 .version("1.1.0")
                 .build();

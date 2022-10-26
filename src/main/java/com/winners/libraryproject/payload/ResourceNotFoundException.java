@@ -1,4 +1,4 @@
-package com.winners.libraryproject.exception;
+package com.winners.libraryproject.payload;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
