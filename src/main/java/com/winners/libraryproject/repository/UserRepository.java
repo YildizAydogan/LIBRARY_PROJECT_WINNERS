@@ -15,7 +15,7 @@ public interface UserRepository extends JpaRepository<User,Long> {
     Optional<User> findByEmail(String email);
 
 
-    User findByEmail(String email);
+    User findByEmail(String email); // --> abi ayni methodname ile olusturulmus iki klass vardi. kendiminkini aktif ettim calistirmak icin
 
     Boolean existsByEmail(String email) throws ResourceNotFoundException;
 

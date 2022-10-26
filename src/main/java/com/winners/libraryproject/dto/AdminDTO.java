@@ -1,3 +1,4 @@
+/*
 package com.winners.libraryproject.dto;
 
 import lombok.AllArgsConstructor;
@@ -19,3 +20,4 @@ public class AdminDTO {
 
 
 }
+*/
