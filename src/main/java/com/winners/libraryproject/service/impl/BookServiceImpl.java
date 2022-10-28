@@ -2,8 +2,8 @@ package com.winners.libraryproject.service.impl;
 
 import com.winners.libraryproject.dto.BookDTO;
 import com.winners.libraryproject.entity.Book;
-import com.winners.libraryproject.exception.ResourceNotFoundException;
 import com.winners.libraryproject.payload.BadRequestException;
+import com.winners.libraryproject.payload.ResourceNotFoundException;
 import com.winners.libraryproject.repository.BookRepository;
 import com.winners.libraryproject.service.BookService;
 import org.springframework.stereotype.Service;
