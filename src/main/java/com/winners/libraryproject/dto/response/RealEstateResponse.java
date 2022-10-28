@@ -1,23 +1,19 @@
-/*
-package com.winners.libraryproject.dto;
-
+package com.winners.libraryproject.dto.response;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class AdminDTO {
+@NoArgsConstructor
+public class RealEstateResponse {
 
-
-
-
-
+    String message;
+    boolean success;
 
 
 
 }
-*/

@@ -9,4 +9,8 @@ import javax.transaction.Transactional;
 @Repository
 public interface LoanRepository extends JpaRepository<Loan,Long> {
 
+
+
+
+
 }

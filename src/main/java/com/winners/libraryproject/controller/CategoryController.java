@@ -1,13 +1,16 @@
 package com.winners.libraryproject.controller;
-
+import springfox.documentation.service.ResponseMessage;
+import com.winners.libraryproject.dto.response.RealEstateResponse;
+import com.winners.libraryproject.dto.response.ResponseMessages;
 import com.winners.libraryproject.entity.Category;
 import com.winners.libraryproject.service.CategoryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +18,7 @@ import java.util.Optional;
 
 
 @RestController
+@Produces(MediaType.APPLICATION_JSON)
 @RequestMapping("/categories")
 public class CategoryController {
 
@@ -46,7 +50,7 @@ public class CategoryController {
 
     @PostMapping("/create")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<Map<String, Boolean>> createCategory(@RequestBody Category category){
+    public ResponseEntity<Map<String, Boolean>> createCategory(@Valid @RequestBody Category category){
         categoryService.createCategory(category);
 
         Map<String, Boolean> map = new HashMap<>();
@@ -59,9 +63,10 @@ public class CategoryController {
     @PutMapping("/update/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Map<String, Boolean>> updateCategory(@Valid @PathVariable Long id, @RequestBody Category category){
+        category.setId(id);
         categoryService.updatedCategory(id, category);
-        Map<String, Boolean> map = new HashMap<>();
-        map.put("success", true);
+      Map<String, Boolean> map = new HashMap<>();
+      map.put("success", true);
 
         return new ResponseEntity<>(map, HttpStatus.OK);
     }
@@ -73,7 +78,8 @@ public class CategoryController {
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<String> deleteCategory(@PathVariable("id") Long id){
         categoryService.deleteCategoryById(id);
-
+        Map<String, Boolean> map = new HashMap<>();
+        map.put("success", true);
         return new ResponseEntity<>("success",HttpStatus.OK);
     }
 
