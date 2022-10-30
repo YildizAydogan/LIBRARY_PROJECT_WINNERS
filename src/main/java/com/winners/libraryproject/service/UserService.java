@@ -74,36 +74,32 @@ public class UserService {
 
     public void removeById(Long id){
         User user = userRepository.findById(id)
-                        .orElseThrow(() -> new ResourceNotFoundException(String.format(USER_NOT_FOUND_MSG, id)));
+                .orElseThrow(() -> new ResourceNotFoundException(String.format(USER_NOT_FOUND_MSG, id)));
 
         userRepository.deleteById(id);
     }
 
     public void login(String email,String password) throws AuthException {
         try {
-        User user= userRepository.findByEmail(email);
+            User user= userRepository.findByEmail(email);
 
-        if (!user.getPassword().equals(password))
-            throw  new AuthException("invalid credentials");
+            if (!user.getPassword().equals(password))
+                throw  new AuthException("invalid credentials");
 
-         }catch (Exception e){
-             throw new AuthException("invalid credentials");
-    }
+        }catch (Exception e){
+            throw new AuthException("invalid credentials");
+        }
     }
 
   /*  public void updateUser(Long  id,UserDTO userDTO){
         boolean emailExists = userRepository.existsByEmail(userDTO.getEmail());
-
         Optional<User> userDetails=userRepository.findById(id);
-
         if (userDetails.get().getBuiltIn()) {
             throw new BadRequestException("You dont have permission to update user info!");
         }
-
         if (emailExists && !userDTO.getEmail().equals(userDetails.get().getEmail())){
             throw new ConflictException("Error: Email is already in use!");
         }
-
        userRepository.update(id,userDTO.getFirstName(),userDTO.getLastName()
                 ,userDTO.getAddress(),userDTO.getPhone(),userDTO.getEmail(),userDTO.getResetPasswordCode());
     }
