@@ -1,5 +1,7 @@
 package com.winners.libraryproject.service;
 
+import com.winners.libraryproject.dto.AdminDTO;
+import com.winners.libraryproject.dto.UserCreatedDTO;
 import com.winners.libraryproject.dto.UserDTO;
 import com.winners.libraryproject.entity.Role;
 import com.winners.libraryproject.entity.User;
@@ -11,6 +13,8 @@ import com.winners.libraryproject.repository.RoleRepository;
 import com.winners.libraryproject.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.security.auth.message.AuthException;
@@ -19,6 +23,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.Function;
 
 @Service
 @AllArgsConstructor
@@ -104,16 +109,24 @@ public class UserService {
     }
 */
 
-    public void createdUser(User user){
+    public void userCreated(UserCreatedDTO userCreatedDTO){
 
-        if (userRepository.existsByEmail(user.getEmail())){
-            throw new ConflictException("Error: Email is already in use!");
-        }
+        Role role=new Role();
+        role.setName(roleRepository.findById(userCreatedDTO.getRoleId()).get().getName());
+        Set<Role> roles=new HashSet<>();
+        roles.add(role);
 
-        LocalDateTime createDate=LocalDateTime.now();
-
-        user.setCreateDate(createDate);
-
+        User user= new User();
+        user.setFirstName(userCreatedDTO.getFirstName());
+        user.setLastName(userCreatedDTO.getLastName());
+        user.setAddress(userCreatedDTO.getAddress());
+        user.setPhone(userCreatedDTO.getPhone());
+        user.setBirthDate(userCreatedDTO.getBirthDate());
+        user.setEmail(userCreatedDTO.getEmail());
+        user.setPassword(userCreatedDTO.getPassword());
+        user.setCreateDate(userCreatedDTO.getCreateDate());
+        user.setResetPasswordCode(userCreatedDTO.getResetPasswordCode());
+        user.setRoles(roles);
 
         userRepository.save(user);
     }
@@ -128,5 +141,22 @@ public class UserService {
 
 
 
+    public Role addRoles(String userRoles) {
+
+        if (userRoles == null) {
+            return roleRepository.findByName(UserRole.ROLE_MEMBER);
+
+        } else {
+
+            if ( "Administrator".equals(userRoles)) {
+                return roleRepository.findByName(UserRole.ROLE_ADMIN);
+
+            } else{
+                return roleRepository.findByName(UserRole.ROLE_STAFF);
+
+            }
+
+        }
+    }
 
 }
