@@ -1,6 +1,9 @@
 package com.winners.libraryproject.service;
 
+import com.winners.libraryproject.dto.UserCreatedDTO;
 import com.winners.libraryproject.dto.UserDTO;
+import com.winners.libraryproject.dto.UserToResponse;
+import com.winners.libraryproject.dto.UserToUserDTO;
 import com.winners.libraryproject.entity.Role;
 import com.winners.libraryproject.entity.User;
 import com.winners.libraryproject.entity.enumeration.UserRole;
@@ -11,6 +14,8 @@ import com.winners.libraryproject.repository.RoleRepository;
 import com.winners.libraryproject.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.security.auth.message.AuthException;
@@ -30,6 +35,7 @@ public class UserService {
     private final RoleRepository roleRepository;
 
     private final static String USER_NOT_FOUND_MSG = "user with id %d not found";
+
 
 
     public void register(User user){
@@ -104,35 +110,63 @@ public class UserService {
     }
 */
 
-    public void createdUser(User user){
+    public void userCreated(UserCreatedDTO userCreatedDTO){
 
-        if (userRepository.existsByEmail(user.getEmail())){
-            throw new ConflictException("Error: Email is already in use!");
-        }
+        Role role=new Role();
+        role.setName(roleRepository.findById(userCreatedDTO.getRoleId()).get().getName());
+        Set<Role> roles=new HashSet<>();
+        roles.add(role);
 
-        LocalDateTime createDate=LocalDateTime.now();
-
-        user.setCreateDate(createDate);
-
+        User user= new User();
+        user.setFirstName(userCreatedDTO.getFirstName());
+        user.setLastName(userCreatedDTO.getLastName());
+        user.setAddress(userCreatedDTO.getAddress());
+        user.setPhone(userCreatedDTO.getPhone());
+        user.setBirthDate(userCreatedDTO.getBirthDate());
+        user.setEmail(userCreatedDTO.getEmail());
+        user.setPassword(userCreatedDTO.getPassword());
+        user.setCreateDate(userCreatedDTO.getCreateDate());
+        user.setResetPasswordCode(userCreatedDTO.getResetPasswordCode());
+        user.setRoles(roles);
 
         userRepository.save(user);
     }
 
-    public void addLoans(){
+    public Page<UserToUserDTO> getUserLoanPage(Pageable pageable){
 
+        Page<User> users=userRepository.findAll(pageable);
+        Page<UserToUserDTO> dtoPage=  users.map(user->new  UserToUserDTO(user));
+          return dtoPage;
     }
 
-    public void getUsersAllInformations(){
+    public Page getUsersPage(String name ,Pageable pageable){
 
+        if (name!=null){
+            return userRepository.findUsersWithQuery(name, pageable);
+        }else {
+            Page<User> users = userRepository.findAll(pageable);
+            Page dtoPage = users.map(user -> new UserToResponse(user));
+            return dtoPage;
+        }
     }
 
 
-    public Set<Role> addRoles(String rol) {
-        Set<Role> roles = new HashSet<>();
+    public Role addRoles(String userRoles) {
 
+        if (userRoles == null) {
+            return roleRepository.findByName(UserRole.ROLE_MEMBER);
 
+        } else {
 
-        return roles;
+            if ( "Administrator".equals(userRoles)) {
+                return roleRepository.findByName(UserRole.ROLE_ADMIN);
+
+            } else{
+                return roleRepository.findByName(UserRole.ROLE_STAFF);
+
+            }
+
+        }
     }
 
 }
