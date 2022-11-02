@@ -12,7 +12,7 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User,Long> {
     //    @Query("SELECT u From User u Where u.email = ?1")
-    Optional<User> findByEmail(String email);
+   // Optional<User> findByEmail(String email);
 
 
     User findByEmail(String email); // --> abi ayni methodname ile olusturulmus iki klass vardi. kendiminkini aktif ettim calistirmak icin
