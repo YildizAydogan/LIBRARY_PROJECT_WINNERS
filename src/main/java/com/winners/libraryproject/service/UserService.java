@@ -1,9 +1,6 @@
 package com.winners.libraryproject.service;
 
-import com.winners.libraryproject.dto.UserCreatedDTO;
-import com.winners.libraryproject.dto.UserDTO;
-import com.winners.libraryproject.dto.UserToResponse;
-import com.winners.libraryproject.dto.UserToUserDTO;
+import com.winners.libraryproject.dto.*;
 import com.winners.libraryproject.entity.Role;
 import com.winners.libraryproject.entity.User;
 import com.winners.libraryproject.entity.enumeration.UserRole;
@@ -19,6 +16,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.security.auth.message.AuthException;
+import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.List;
@@ -69,7 +67,7 @@ public class UserService {
 
         UserDTO userDTO=new UserDTO();
         userDTO.setRoles(user.getRoles());
-        return new UserDTO(user.getFirstName(), user.getLastName(),user.getScore(),user.getAddress(),user.getPhone(),user.getBirthDate(),user.getEmail(),user.getCreateDate(),user.getResetPasswordCode(),user.getBuiltIn(),userDTO.getRoles() );
+        return new UserDTO(user.getFirstName(), user.getLastName(),user.getScore(),user.getAddress(),user.getPhone(),user.getBirthDate(),user.getEmail(),user.getCreateDate(),user.getBuiltIn(),userDTO.getRoles() );
     }
 
 
@@ -82,9 +80,9 @@ public class UserService {
 
     public void login(String email,String password) throws AuthException {
         try {
-        User user= userRepository.findByEmail(email);
+        Optional<User> user= userRepository.findByEmail(email);
 
-        if (!user.getPassword().equals(password))
+        if (!user.get().getPassword().equals(password))
             throw  new AuthException("invalid credentials");
 
          }catch (Exception e){
@@ -92,8 +90,8 @@ public class UserService {
     }
     }
 
-  /*  public void updateUser(Long  id,UserDTO userDTO){
-        boolean emailExists = userRepository.existsByEmail(userDTO.getEmail());
+    public void updateUser(Long  id, UserUpdateDTO userUpdateDTO){
+        boolean emailExists = userRepository.existsByEmail(userUpdateDTO.getEmail());
 
         Optional<User> userDetails=userRepository.findById(id);
 
@@ -101,23 +99,40 @@ public class UserService {
             throw new BadRequestException("You dont have permission to update user info!");
         }
 
-        if (emailExists && !userDTO.getEmail().equals(userDetails.get().getEmail())){
+        if (emailExists && !userUpdateDTO.getEmail().equals(userDetails.get().getEmail())){
             throw new ConflictException("Error: Email is already in use!");
         }
+        User user=new User();
+        user.setId(id);
+        user.setFirstName(userUpdateDTO.getFirstName());
+        user.setLastName(userUpdateDTO.getLastName());
+        user.setAddress(userUpdateDTO.getAddress());
+        user.setPhone(userUpdateDTO.getPhone());
+        user.setBirthDate(userUpdateDTO.getBirthDate());
+        user.setEmail(userUpdateDTO.getEmail());
+        user.setPassword(userUpdateDTO.getPassword());
 
-       userRepository.update(id,userDTO.getFirstName(),userDTO.getLastName()
-                ,userDTO.getAddress(),userDTO.getPhone(),userDTO.getEmail(),userDTO.getResetPasswordCode());
+        userRepository.save(user);
     }
-*/
+
 
     public void userCreated(UserCreatedDTO userCreatedDTO){
 
-        Role role=new Role();
-        role.setName(roleRepository.findById(userCreatedDTO.getRoleId()).get().getName());
+
         Set<Role> roles=new HashSet<>();
-        roles.add(role);
+        Role memberRole ;
+        if (userCreatedDTO.getRoleId()==1){
+            memberRole = roleRepository.findByName(UserRole.ROLE_ADMIN);
+        }else if (userCreatedDTO.getRoleId()==2){
+            memberRole = roleRepository.findByName(UserRole.ROLE_STAFF);
+        }else {
+            memberRole = roleRepository.findByName(UserRole.ROLE_MEMBER);
+        }
+        roles.add(memberRole);
+
 
         User user= new User();
+        user.setId(0L);
         user.setFirstName(userCreatedDTO.getFirstName());
         user.setLastName(userCreatedDTO.getLastName());
         user.setAddress(userCreatedDTO.getAddress());
@@ -168,5 +183,22 @@ public class UserService {
 
         }
     }
+
+
+   /* public void updatePassword(Long id, String newPassword, String oldPassword) throws BadRequestException {
+        Optional<User> user = userRepository.findById(id);
+        if (user.get().getBuiltIn()) {
+            throw new BadRequestException("You dont have permission to update password!");
+        }
+
+        if (!BCrypt.hashpw(oldPassword, user.get().getPassword()).equals(user.get().getPassword()))
+            throw new BadRequestException("password does not match");
+
+        String hashedPassword = passwordEncoder.encode(newPassword);
+        user.get().setPassword(hashedPassword);
+
+        userRepository.save(user.get());
+    }*/
+
 
 }

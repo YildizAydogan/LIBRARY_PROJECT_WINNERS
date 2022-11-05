@@ -15,21 +15,20 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User,Long> {
     //    @Query("SELECT u From User u Where u.email = ?1")
-   // Optional<User> findByEmailOptional(String email);
+    Optional<User> findByEmail(String email);
 
 
-    User findByEmail(String email);
+   // User findByEmail(String email);
 
     Boolean existsByEmail(String email) throws ResourceNotFoundException;
 
-  /*  @Modifying
+   /* @Modifying
     @Query("UPDATE User u " +
             "SET u.firstName = ?2, u.lastName = ?3, u.address = ?5, " +
-            "u.phone = ?6, u.email = ?8, u.resetPasswordCode = ?11 " +
+            "u.phone = ?6, u.email = ?8 " +
             "WHERE u.id = ?1")
-    void update(Long id, String firstName, String lastName, String address, String phone, String email,
-                String resetPasswordCode) throws BadRequestException;
-                */
+    void update(Long id, String firstName, String lastName, String address, String phone, String email) throws BadRequestException;
+*/
 
     @Query(value="select u.id, u.firstName from User u where u.firstName=:name")
     Page findUsersWithQuery(@Param("name") String name, Pageable pageable);

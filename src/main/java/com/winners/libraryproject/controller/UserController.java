@@ -4,6 +4,7 @@ import com.winners.libraryproject.dto.UserCreatedDTO;
 import com.winners.libraryproject.dto.UserDTO;
 
 import com.winners.libraryproject.dto.UserToUserDTO;
+import com.winners.libraryproject.dto.UserUpdateDTO;
 import com.winners.libraryproject.entity.User;
 import com.winners.libraryproject.service.UserService;
 import org.springframework.data.domain.Page;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.security.auth.message.AuthException;
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -97,7 +99,7 @@ public class UserController {
         return ResponseEntity.ok(userDTOPage);
 
     }
-    @GetMapping("/users1")
+    @GetMapping("/userspage")
 
     public ResponseEntity<Page> getAllUsersByPage(@RequestParam(required = false ,value="name") String name,
                                                   @RequestParam(required = false ,value="page") int page,
@@ -109,4 +111,14 @@ public class UserController {
 
         return ResponseEntity.ok(userDTOPage);
     }
+
+    @PatchMapping("/user/{id}")
+    public ResponseEntity<Map<String, Boolean>> memberUpdate(@PathVariable Long id,@Valid @RequestBody UserUpdateDTO userUpdateDTO){
+        userService.updateUser(id,userUpdateDTO);
+
+        Map<String, Boolean> map = new HashMap<>();
+        map.put("success", true);
+        return new ResponseEntity<>(map, HttpStatus.OK);
+    }
+
 }

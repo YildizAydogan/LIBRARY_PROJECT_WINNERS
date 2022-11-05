@@ -69,7 +69,7 @@ public class User {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy/MM/dd HH:mm:ss", timezone = "Turkey")
     @NotNull(message = "Please enter the pick up time of the createDate")
     @Column(nullable = false)
-    private LocalDateTime createDate;
+    private LocalDateTime createDate=LocalDateTime.now();
 
     @NotNull(message = "Please enter your resetPasswordCode")
     @Column(nullable = false)
