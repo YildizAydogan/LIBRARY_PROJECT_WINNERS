@@ -45,13 +45,16 @@ public class LoanController {
 
     /* 1- Sadece ilgili kullanıcı erişmeli
 
-     */
+
+   */
+
     @GetMapping("/{id}")
     @PreAuthorize("hasRole('MEMBER')")
-    public ResponseEntity<LoanDTO> getLoansById(@PathVariable Long loanId, HttpServletRequest request) {
-        LoanDTO loan = loanService.getLoansById(loanId);
+    public ResponseEntity<LoanDTO> getLoanById(@PathVariable Long loanId, HttpServletRequest request) {
+
         Long userId = (long)request.getAttribute("id");
-        return ResponseEntity.ok(loan);
+        LoanDTO loanDTO = loanService.getLoanById(loanId,userId);
+        return ResponseEntity.ok(loanDTO);
     }
 
 //-----------------/loans/user/:userId---------search-------------------------
@@ -61,14 +64,14 @@ public class LoanController {
 
 
 //-----------------/loans/auth/:loanId----------------------------------
-
+/*
     @GetMapping("/auth/{id}")
     @PreAuthorize("hasRole('EMPLOYEE') or hasRole('ADMIN')")
     public ResponseEntity<LoanDTO> getAnyLoansById(@PathVariable Long id) {
         LoanDTO loan = loanService.getLoansById(id);
         return ResponseEntity.ok(loan);
     }
-
+*/
 
 //-----------------/loans put----------------------------------
 

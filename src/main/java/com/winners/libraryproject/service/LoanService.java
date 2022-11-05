@@ -1,9 +1,7 @@
 package com.winners.libraryproject.service;
 
 import com.winners.libraryproject.dto.LoanDTO;
-import com.winners.libraryproject.dto.UserToUserDTO;
 import com.winners.libraryproject.entity.Loan;
-import com.winners.libraryproject.entity.User;
 import com.winners.libraryproject.payload.ResourceNotFoundException;
 import com.winners.libraryproject.repository.BookRepository;
 import com.winners.libraryproject.repository.LoanRepository;
@@ -15,7 +13,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-import java.util.Set;
 
 @AllArgsConstructor
 @Service
@@ -34,7 +31,9 @@ public class LoanService {
     UserRepository userRepository;
 
 
-   /* public Page<UserToUserDTO> getUserLoanPage(Pageable pageable){
+   /* Örnek kod
+
+   public Page<UserToUserDTO> getUserLoanPage(Pageable pageable){
 
         Page<User> users=userRepository.findAll(pageable);
         Page<UserToUserDTO> dtoPage=  users.map(user->new  UserToUserDTO(user));
@@ -43,11 +42,16 @@ public class LoanService {
 
 
     */
-    public Page<LoanDTO> findAllLoansByUser (Long id, Pageable pageable) throws ResourceNotFoundException {
+    public Page<LoanDTO> findAllLoansByUser (Long userId, Pageable pageable) throws ResourceNotFoundException {
        // Yanlış repo fonk. deneme amaçlı yazıldı
 
-        Page<Loan> loans = loanRepository.findAll(pageable);
-        Page<LoanDTO> loansDTO= loans.map(loan-> new LoanDTO(loan.getId(),loan.getUserId(),loan.getBookId(),loan.getLoanDate(),loan.getExpireDate(),loan.getReturnDate()));
+        Page<Loan> loans = loanRepository.findUserLoansSelf(userId,pageable);
+        Page<LoanDTO> loansDTO= loans.map(loan-> new LoanDTO(loan.getId(),
+                                                            loan.getUserId(),
+                                                            loan.getBookId(),
+                                                            loan.getLoanDate(),
+                                                            loan.getExpireDate(),
+                                                            loan.getReturnDate()));
 
 
        return loansDTO;
@@ -55,4 +59,9 @@ public class LoanService {
     }
 
 
+    public LoanDTO getLoanById(Long loanId, Long userId) throws ResourceNotFoundException {
+        return loanRepository.getLoanByLoanId(userId,loanId)
+                            .orElseThrow(() -> new ResourceNotFoundException("Loan Not Found"));
+
+    }
 }
