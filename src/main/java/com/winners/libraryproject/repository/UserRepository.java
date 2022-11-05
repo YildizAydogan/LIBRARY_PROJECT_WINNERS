@@ -15,10 +15,10 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User,Long> {
     //    @Query("SELECT u From User u Where u.email = ?1")
-   // Optional<User> findByEmailOptional(String email);
+    Optional<User> findByEmail(String email);
 
 
-    User findByEmail(String email);
+//    User findByEmail(String email);
 
     Boolean existsByEmail(String email) throws ResourceNotFoundException;
 
