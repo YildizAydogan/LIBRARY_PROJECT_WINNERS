@@ -29,11 +29,11 @@ public class UserDTO {
     @JsonIgnore
     private String password;
     private LocalDateTime createDate;
-    private String resetPasswordCode;
+
     private Boolean builtIn;
     private Set<String> roles;
 
-    public UserDTO(String firstName, String lastName, Integer score, String address, String phone, Date birthDate, String email, LocalDateTime createDate, String resetPasswordCode, Boolean builtIn, Set<String> roles) {
+    public UserDTO(String firstName, String lastName, Integer score, String address, String phone, Date birthDate, String email, LocalDateTime createDate, Boolean builtIn, Set<String> roles) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.score = score;
@@ -42,7 +42,6 @@ public class UserDTO {
         this.birthDate = birthDate;
         this.email = email;
         this.createDate = createDate;
-        this.resetPasswordCode = resetPasswordCode;
         this.builtIn = builtIn;
         this.roles = roles;
     }
@@ -58,7 +57,6 @@ public class UserDTO {
             else
                 roles1.add("Member");
         }
-        //TODO: employee ve anonymous eklenecek
         this.roles=roles1;
     }
 }
