@@ -2,15 +2,17 @@ package com.winners.libraryproject.controller;
 
 
 import com.winners.libraryproject.dto.LoanDTO;
+import com.winners.libraryproject.dto.UserToUserDTO;
 import com.winners.libraryproject.entity.Loan;
 import com.winners.libraryproject.service.LoanService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -28,10 +30,16 @@ public class LoanController {
 //-----------------LOANS----search------------------------------
     @GetMapping("")
     @PreAuthorize("hasRole('MEMBER')")
-    public ResponseEntity<LoanDTO> getLoans(@PathVariable Long loanId, HttpServletRequest request) {
-        LoanDTO loan = loanService.getLoansById(loanId);
+    public ResponseEntity<Page<LoanDTO>> getAllLoansByUser(@RequestParam("page") int page,
+                                                                     @RequestParam("size") int size,
+                                                                     @RequestParam("sort") String prop,
+                                                                     @RequestParam("type") Sort.Direction type,
+                                                                     HttpServletRequest request){
+
+        Pageable pageable= PageRequest.of(page, size, Sort.by(type, prop));
         Long userId = (long)request.getAttribute("id");
-        return ResponseEntity.ok(loan);
+        Page<LoanDTO> loanDTOPageable=loanService.findAllLoansByUser(userId,pageable);
+        return ResponseEntity.ok(loanDTOPageable);
     }
 //-----------------LOANS/:id----------------------------------
 
