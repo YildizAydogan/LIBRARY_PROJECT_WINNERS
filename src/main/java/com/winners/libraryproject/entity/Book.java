@@ -2,6 +2,8 @@ package com.winners.libraryproject.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,7 +16,7 @@ import java.io.File;
 import java.time.LocalDateTime;
 import java.util.Set;
 
-
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -31,10 +33,10 @@ public class Book {
     @JoinColumn(name = "author_id", nullable = false,insertable = false, updatable = false)
     private Author author;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id", nullable = false,insertable = false, updatable = false)
-    private Category category;
-
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "category_id", nullable = false)
+    @JsonIgnoreProperties("books")
+    private Category categoryId;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "publisher_id", nullable = false,insertable = false, updatable = false)
     private Publisher publisher;
@@ -70,10 +72,6 @@ public class Book {
     @JsonFormat(pattern="yyyy")
     private int publishDate;
 
-    @NotBlank(message = "Please provide not blank category id.")
-    @NotNull(message = "Please provide your category id.")
-    @Column(name = "category_id",nullable = false)
-    private Long categoryId;
 
     @Column(name = "image",nullable = true)
     private File image;

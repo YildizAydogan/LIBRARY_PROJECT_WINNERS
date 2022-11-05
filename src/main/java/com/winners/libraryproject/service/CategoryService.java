@@ -1,64 +1,80 @@
 package com.winners.libraryproject.service;
 
+import com.winners.libraryproject.dto.CategoryDTO;
+import com.winners.libraryproject.dto.mapper.CategoryMapper;
 import com.winners.libraryproject.entity.Category;
 import com.winners.libraryproject.payload.BadRequestException;
 import com.winners.libraryproject.payload.ResourceNotFoundException;
+import com.winners.libraryproject.payload.messages.ErrorMessage;
 import com.winners.libraryproject.repository.CategoryRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import java.util.List;
-import java.util.Optional;
 
 
 @Service
 public class CategoryService {
-    private final static String CATEGORY_NOT_FOUND_MSG = "Category with id %d not found";
+
     private final CategoryRepository categoryRepository;
+    private CategoryMapper categoryMapper;
 
     public CategoryService(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
 
 
-    public List<Category> findAllCategories() {
-        return categoryRepository.findAll();
+    public List<CategoryDTO> findAllCategories() {
+        List<Category> categoryList = categoryRepository.findAll();
+        return categoryMapper.map(categoryList);
     }
 
 
-    public Optional<Category> findCategoryById(Long id) throws ResourceNotFoundException {
-
-        return Optional.ofNullable(categoryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(String.format(CATEGORY_NOT_FOUND_MSG, id))));
+    public CategoryDTO findCategoryById(Long id) {
+        Category category = categoryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Category not found"));
+        return categoryMapper.categoryToCategoryDTO(category);
     }
 
-    public void createCategory(Category category) throws BadRequestException {
+    public Category createCategory(CategoryDTO categoryDTO) {
+        Category category = categoryMapper.categoryDTOToCategory(categoryDTO);
+        categoryRepository.save(category);
+        return category;
+    }
 
-        try {
-            categoryRepository.save(category);
-        }catch (Exception e){
-            throw new BadRequestException("Invalid Request!");
+    public Category updatedCategory(Long id, Category category) {
+        Category foundCategory = categoryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Category not found"));
+        if(foundCategory.getBuiltIn()) {
+            throw new BadRequestException(ErrorMessage.NOT_PERMITTED_METHOD_MESSAGE);
         }
+        foundCategory.setId(id);
+        foundCategory.setName(category.getName());
+        categoryRepository.save(foundCategory);
 
+        return foundCategory;
     }
 
-    public void updatedCategory(Long id, Category category) throws BadRequestException  {
-        Optional<Category> categoryDetails = categoryRepository.findById(id);
-        try {
-            if (categoryDetails.isPresent()) {
-                Category newCategory= new Category(category.getId(), category.getName(), category.getBuiltIn(), category.getSequence(), category.getBooks());
-                categoryRepository.save(newCategory);
-            }
-        }catch (Exception e){
-            throw new BadRequestException("Invalid Request!");
+
+    public void deleteCategoryById(Long id) {
+        Category category = categoryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Category not found"));
+        if(category.getBuiltIn()) {
+            throw new BadRequestException(ErrorMessage.NOT_PERMITTED_METHOD_MESSAGE);
         }
-
-
-    }
-
-
-    public void deleteCategoryById(Long id)  throws ResourceNotFoundException {
-        boolean categoryExist = categoryRepository.findById(id).isPresent();
-        if (!categoryExist) {
-            throw new ResourceNotFoundException("Category does not exist");
+        if(!category.getBooks().isEmpty()) {
+            throw  new ResourceNotFoundException("You cannot delete an category who has a book");
         }
         categoryRepository.deleteById(id);
     }
+
+
+
+    public Page<CategoryDTO> getCategoryPage(Pageable pageable) {
+        Page<Category> categories = categoryRepository.findAll(pageable);
+        Page<CategoryDTO> dtoPage = categories.map(category -> categoryMapper.categoryToCategoryDTO(category));
+
+        return dtoPage;
+    }
+
+
+
+
 }
