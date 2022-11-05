@@ -1,51 +1,21 @@
-package com.winners.libraryproject.entity;
-
+package com.winners.libraryproject.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
+import com.winners.libraryproject.entity.Book;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import javax.persistence.*;
+import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.io.File;
 import java.time.LocalDateTime;
-import java.util.Set;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
-@Entity
-@Table(name = "books")
-public class Book {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    //-------------------------------RELATIONS------------------------------------------------------------
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "author_id", nullable = false,insertable = false, updatable = false)
-    private Author author;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "category_id", nullable = false)
-    @JsonIgnoreProperties("books")
-    private Category categoryId;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "publisher_id", nullable = false,insertable = false, updatable = false)
-    private Publisher publisher;
-
-    @OneToMany(mappedBy = "bookId")
-    private Set<Loan> loans;
-
-    //----------------------------------------------------------------------------------------------------
-
+@NoArgsConstructor
+public class BookDTO {
     @NotNull(message = "Please provide your firstName")
     @Size(min = 2, max = 80, message = "BookName '${validatedValue}' must be between {min} and {max} chracters long")
     @Column(length = 80, nullable = false)
@@ -55,8 +25,6 @@ public class Book {
     @Column( name = "isbn", length = 17, nullable = false)
     private String isbn;
 
-    @Column(name = "page_count",nullable = true)
-    private int pageCount;
 
     @NotBlank(message = "Please provide not blank author id.")
     @NotNull(message = "Please provide your author id.")
@@ -68,13 +36,11 @@ public class Book {
     @Column(name = "publisher_id",nullable = false)
     private Long publisherId;
 
-    @Column(name = "publish_date",nullable = true)
-    @JsonFormat(pattern="yyyy")
-    private int publishDate;
+    @NotBlank(message = "Please provide not blank category id.")
+    @NotNull(message = "Please provide your category id.")
+    @Column(name = "category_id",nullable = false)
+    private Long categoryId;
 
-
-    @Column(name = "image",nullable = true)
-    private File image;
 
     @NotBlank(message = "Please provide not blank loanable.")
     @NotNull(message = "Please provide your loanable.")
@@ -104,17 +70,17 @@ public class Book {
     @Column(name ="builtIn", nullable = false)
     private Boolean builtIn;
 
-    public Book(String name, String isbn, int pageCount, int publishDate, File image, Boolean loanable, String shelfCode, Boolean active, Boolean featured, LocalDateTime createDate, Boolean builtIn) {
-        this.name = name;
-        this.isbn = isbn;
-        this.pageCount = pageCount;
-        this.publishDate = publishDate;
-        this.image = image;
-        this.loanable = loanable;
-        this.shelfCode = shelfCode;
-        this.active = active;
-        this.featured = featured;
-        this.createDate = createDate;
-        this.builtIn = builtIn;
+    public BookDTO(Book book){
+        this.name = book.getName();
+        this.isbn = book.getIsbn();
+        this.authorId =book.getAuthor().getId();
+        this.publisherId = book.getPublisher().getId();
+        this.categoryId = book.getCategory().getId();
+        this.loanable = book.getLoanable();
+        this.shelfCode = book.getShelfCode();
+        this.active = book.getActive();
+        this.featured = book.getFeatured();
+        this.createDate = book.getCreateDate();
+        this.builtIn = book.getBuiltIn();
     }
 }
