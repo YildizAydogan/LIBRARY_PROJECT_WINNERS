@@ -1,9 +1,6 @@
 package com.winners.libraryproject.service;
 
-import com.winners.libraryproject.dto.UserCreatedDTO;
 import com.winners.libraryproject.dto.UserDTO;
-import com.winners.libraryproject.dto.UserToResponse;
-import com.winners.libraryproject.dto.UserToUserDTO;
 import com.winners.libraryproject.entity.Role;
 import com.winners.libraryproject.entity.User;
 import com.winners.libraryproject.entity.enumeration.UserRole;
@@ -14,8 +11,6 @@ import com.winners.libraryproject.repository.RoleRepository;
 import com.winners.libraryproject.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.security.auth.message.AuthException;
@@ -35,7 +30,6 @@ public class UserService {
     private final RoleRepository roleRepository;
 
     private final static String USER_NOT_FOUND_MSG = "user with id %d not found";
-
 
 
     public void register(User user){
@@ -75,98 +69,60 @@ public class UserService {
 
     public void removeById(Long id){
         User user = userRepository.findById(id)
-                        .orElseThrow(() -> new ResourceNotFoundException(String.format(USER_NOT_FOUND_MSG, id)));
+                .orElseThrow(() -> new ResourceNotFoundException(String.format(USER_NOT_FOUND_MSG, id)));
 
         userRepository.deleteById(id);
     }
 
     public void login(String email,String password) throws AuthException {
         try {
-        User user= userRepository.findByEmail(email);
+            Optional<User> user= userRepository.findByEmail(email);
 
-        if (!user.getPassword().equals(password))
-            throw  new AuthException("invalid credentials");
+            if (!user.equals(password))
+                throw  new AuthException("invalid credentials");
 
-         }catch (Exception e){
-             throw new AuthException("invalid credentials");
-    }
+        }catch (Exception e){
+            throw new AuthException("invalid credentials");
+        }
     }
 
   /*  public void updateUser(Long  id,UserDTO userDTO){
         boolean emailExists = userRepository.existsByEmail(userDTO.getEmail());
-
         Optional<User> userDetails=userRepository.findById(id);
-
         if (userDetails.get().getBuiltIn()) {
             throw new BadRequestException("You dont have permission to update user info!");
         }
-
         if (emailExists && !userDTO.getEmail().equals(userDetails.get().getEmail())){
             throw new ConflictException("Error: Email is already in use!");
         }
-
        userRepository.update(id,userDTO.getFirstName(),userDTO.getLastName()
                 ,userDTO.getAddress(),userDTO.getPhone(),userDTO.getEmail(),userDTO.getResetPasswordCode());
     }
 */
 
-    public void userCreated(UserCreatedDTO userCreatedDTO){
+    public void createdUser(User user){
 
-        Role role=new Role();
-        role.setName(roleRepository.findById(userCreatedDTO.getRoleId()).get().getName());
-        Set<Role> roles=new HashSet<>();
-        roles.add(role);
+        if (userRepository.existsByEmail(user.getEmail())){
+            throw new ConflictException("Error: Email is already in use!");
+        }
 
-        User user= new User();
-        user.setFirstName(userCreatedDTO.getFirstName());
-        user.setLastName(userCreatedDTO.getLastName());
-        user.setAddress(userCreatedDTO.getAddress());
-        user.setPhone(userCreatedDTO.getPhone());
-        user.setBirthDate(userCreatedDTO.getBirthDate());
-        user.setEmail(userCreatedDTO.getEmail());
-        user.setPassword(userCreatedDTO.getPassword());
-        user.setCreateDate(userCreatedDTO.getCreateDate());
-        user.setResetPasswordCode(userCreatedDTO.getResetPasswordCode());
-        user.setRoles(roles);
+        LocalDateTime createDate=LocalDateTime.now();
+
+        user.setCreateDate(createDate);
+
 
         userRepository.save(user);
     }
 
-    public Page<UserToUserDTO> getUserLoanPage(Pageable pageable){
+    public void addLoans(){
 
-        Page<User> users=userRepository.findAll(pageable);
-        Page<UserToUserDTO> dtoPage=  users.map(user->new  UserToUserDTO(user));
-          return dtoPage;
     }
 
-    public Page getUsersPage(String name ,Pageable pageable){
+    public void getUsersAllInformations(){
 
-        if (name!=null){
-            return userRepository.findUsersWithQuery(name, pageable);
-        }else {
-            Page<User> users = userRepository.findAll(pageable);
-            Page dtoPage = users.map(user -> new UserToResponse(user));
-            return dtoPage;
-        }
     }
 
 
-    public Role addRoles(String userRoles) {
 
-        if (userRoles == null) {
-            return roleRepository.findByName(UserRole.ROLE_MEMBER);
-
-        } else {
-
-            if ( "Administrator".equals(userRoles)) {
-                return roleRepository.findByName(UserRole.ROLE_ADMIN);
-
-            } else{
-                return roleRepository.findByName(UserRole.ROLE_STAFF);
-
-            }
-
-        }
-    }
 
 }
