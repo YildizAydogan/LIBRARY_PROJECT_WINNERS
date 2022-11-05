@@ -57,7 +57,6 @@ public class UserDTO {
             else
                 roles1.add("Member");
         }
-        //TODO: employee ve anonymous eklenecek
         this.roles=roles1;
     }
 }

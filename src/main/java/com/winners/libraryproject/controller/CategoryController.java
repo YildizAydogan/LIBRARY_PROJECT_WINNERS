@@ -1,7 +1,4 @@
 package com.winners.libraryproject.controller;
-import springfox.documentation.service.ResponseMessage;
-import com.winners.libraryproject.dto.response.RealEstateResponse;
-import com.winners.libraryproject.dto.response.ResponseMessages;
 import com.winners.libraryproject.entity.Category;
 import com.winners.libraryproject.service.CategoryService;
 import org.springframework.http.HttpStatus;

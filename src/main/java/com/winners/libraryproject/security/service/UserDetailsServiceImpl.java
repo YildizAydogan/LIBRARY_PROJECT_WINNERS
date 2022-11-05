@@ -1,5 +1,6 @@
 package com.winners.libraryproject.security.service;
 import com.winners.libraryproject.entity.User;
+import com.winners.libraryproject.payload.messages.ErrorMessage;
 import com.winners.libraryproject.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,12 +14,14 @@ import javax.transaction.Transactional;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    private final UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Override
-    @Transactional
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + email));
+
+        User user=userRepository.findByEmail(email).orElseThrow(()->new
+                UsernameNotFoundException(String.format(ErrorMessage.USER_NOT_FOUND_MESSAGE, email)));
+
         return UserDetailsImpl.build(user);
     }
 }

@@ -2,38 +2,35 @@ package com.winners.libraryproject.controller;
 
 import com.winners.libraryproject.dto.UserCreatedDTO;
 import com.winners.libraryproject.dto.UserDTO;
+
+import com.winners.libraryproject.dto.UserToUserDTO;
+import com.winners.libraryproject.dto.UserUpdateDTO;
 import com.winners.libraryproject.entity.User;
-import com.winners.libraryproject.repository.UserRepository;
 import com.winners.libraryproject.service.UserService;
-import lombok.AllArgsConstructor;
-import net.kaczmarzyk.spring.data.jpa.domain.EqualIgnoreCase;
-import net.kaczmarzyk.spring.data.jpa.web.annotation.And;
-import net.kaczmarzyk.spring.data.jpa.web.annotation.Spec;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.jpa.domain.Specification;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
 import javax.security.auth.message.AuthException;
-import javax.transaction.Transactional;
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Controller
-@AllArgsConstructor
 @RequestMapping()
 public class UserController {
 
     private final UserService userService;
 
-    private final UserRepository userRepository;
-
-
+    public UserController(UserService userService){
+        this.userService=userService;
+    }
 
     @PostMapping(path="/register")
     public ResponseEntity<Map<String, Boolean>> registerUser(@RequestBody User user){
@@ -91,20 +88,37 @@ public class UserController {
         return new ResponseEntity<>("login succesfully", HttpStatus.OK);
     }
 
-    @Transactional
-    @GetMapping("/users")
-    public Object usersSearch(@And({
-            @Spec(path = "page", params = "page", spec = EqualIgnoreCase.class),
-            @Spec(path = "size", params = "size", spec = EqualIgnoreCase.class),
-            @Spec(path = "sort", params = "date", spec = EqualIgnoreCase.class),
-            @Spec(path = "type", params = "type", spec = EqualIgnoreCase.class),
-        }) Specification<User> customerNameSpec){
+    @GetMapping("/user/loans")
+    public ResponseEntity<Page<UserToUserDTO>> getAllUserLoansByPage(@RequestParam("page") int page,
+                                                                     @RequestParam("size") int size,
+                                                                     @RequestParam("sort") String prop,
+                                                                     @RequestParam("type") Sort.Direction type){
 
-     return userRepository.findAll((Sort) customerNameSpec);
+        Pageable pageable= PageRequest.of(page, size, Sort.by(type, prop));
+        Page<UserToUserDTO> userDTOPage=userService.getUserLoanPage(pageable);
+        return ResponseEntity.ok(userDTOPage);
+
+    }
+    @GetMapping("/userspage")
+
+    public ResponseEntity<Page> getAllUsersByPage(@RequestParam(required = false ,value="name") String name,
+                                                  @RequestParam(required = false ,value="page") int page,
+                                                  @RequestParam(required = false ,value="size") int size,
+                                                  @RequestParam(required = false ,value="sort") String prop,
+                                                  @RequestParam(required = false ,value="type") Sort.Direction type){
+        Pageable pageable= PageRequest.of(page, size, Sort.by(type, prop));
+        Page userDTOPage=userService.getUsersPage(name,pageable);
+
+        return ResponseEntity.ok(userDTOPage);
     }
 
+    @PatchMapping("/user/{id}")
+    public ResponseEntity<Map<String, Boolean>> memberUpdate(@PathVariable Long id,@Valid @RequestBody UserUpdateDTO userUpdateDTO){
+        userService.updateUser(id,userUpdateDTO);
 
-
-
+        Map<String, Boolean> map = new HashMap<>();
+        map.put("success", true);
+        return new ResponseEntity<>(map, HttpStatus.OK);
+    }
 
 }

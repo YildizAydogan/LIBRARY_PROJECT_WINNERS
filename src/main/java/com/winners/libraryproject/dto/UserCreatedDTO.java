@@ -7,9 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -22,7 +19,6 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserCreatedDTO {
-
 
     private Long id;
 
@@ -71,7 +67,8 @@ public class UserCreatedDTO {
 
 
     @NotNull(message = "Please enter your builtIn")
-    private Boolean builtIn = false;
+    private Boolean builtIn;
 
     private Long roleId;
 }
+
