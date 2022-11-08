@@ -28,7 +28,18 @@ public class LoanController {
     LoanService loanService;
 
 //-----------------LOANS----search------------------------------
-    @GetMapping("")
+    /*
+@GetMapping("")
+@PreAuthorize("hasRole('MEMBER')")
+public ResponseEntity<LoanDTO> getAllLoansByUser(HttpServletRequest request){
+
+
+    Long userId = (long)request.getAttribute("id");
+    LoanDTO loanDTO=loanService.findAllLoansByUser(userId);
+    return ResponseEntity.ok(loanDTO);
+}
+*/
+    /*  @GetMapping("")
     @PreAuthorize("hasRole('MEMBER')")
     public ResponseEntity<Page<LoanDTO>> getAllLoansByUser(@RequestParam("page") int page,
                                                                      @RequestParam("size") int size,
@@ -41,22 +52,25 @@ public class LoanController {
         Page<LoanDTO> loanDTOPageable=loanService.findAllLoansByUser(userId,pageable);
         return ResponseEntity.ok(loanDTOPageable);
     }
+    
+    */
+
 //-----------------LOANS/:id----------------------------------
 
     /* 1- Sadece ilgili kullanıcı erişmeli
 
 
-   */
+
 
     @GetMapping("/{id}")
     @PreAuthorize("hasRole('MEMBER')")
-    public ResponseEntity<LoanDTO> getLoanById(@PathVariable Long loanId, HttpServletRequest request) {
+    public ResponseEntity<Loan> getLoanById(@PathVariable Long loanId, HttpServletRequest request) {
 
         Long userId = (long)request.getAttribute("id");
-        LoanDTO loanDTO = loanService.getLoanById(loanId,userId);
-        return ResponseEntity.ok(loanDTO);
+        Loan loan = loanService.getLoanById(loanId,userId);
+        return ResponseEntity.ok(loan);
     }
-
+ */
 //-----------------/loans/user/:userId---------search-------------------------
 
 

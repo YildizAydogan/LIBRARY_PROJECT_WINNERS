@@ -8,7 +8,10 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name="Loan")
 public class Loan {
@@ -52,6 +55,9 @@ public class Loan {
     @Lob
     @Column(columnDefinition = "text")
     String notes;
+
+
+
 
 
 }

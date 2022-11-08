@@ -15,9 +15,14 @@ import java.util.Optional;
 @Repository
 public interface LoanRepository extends JpaRepository<Loan,Long> {
 
+/*
+    @Query("SELECT new Loan(r) FROM loan r WHERE r.userId.id = ?1")
+    Loan findUserLoansSelf(Long userId);
 
-    @Query("SELECT new com.winners.libraryproject.entity.Loan(r) FROM Loan r WHERE r.userId.id = ?1")
+    @Query("SELECT new com.winners.libraryproject.entity.Loan(r) FROM loan r WHERE r.userId.id = ?1")
     Page findUserLoansSelf(Long userId, Pageable pageable);
-    @Query("SELECT new com.winners.libraryproject.entity.Loan(r) FROM Loan r WHERE r.id = ?1 and r.userId.id = ?2")
-    Optional<LoanDTO> getLoanByLoanId(Long userId, Long loanId);
+
+	@Query("SELECT new com.winners.libraryproject.entity.Loan(r) FROM Loan r WHERE  r.id = ?1  and  r.userId.id = ?2")
+    Optional<Loan> getLoanByLoanId( Long loanId,Long userId);
+   */
 }

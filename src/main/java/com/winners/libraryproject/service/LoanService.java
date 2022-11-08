@@ -39,9 +39,20 @@ public class LoanService {
         Page<UserToUserDTO> dtoPage=  users.map(user->new  UserToUserDTO(user));
         return dtoPage;
     }
+*/
+
+    /*
+  public LoanDTO findAllLoansByUser (Long userId) throws ResourceNotFoundException {
+       // Yanlış repo fonk. deneme amaçlı yazıldı
+
+        Loan loan = loanRepository.findUserLoansSelf(userId);
 
 
-    */
+       return new LoanDTO(loan.getId(), loan.getUserId(),loan.getBookId(),loan.getLoanDate(),loan.getExpireDate(),loan.getReturnDate());
+
+    }
+
+   
     public Page<LoanDTO> findAllLoansByUser (Long userId, Pageable pageable) throws ResourceNotFoundException {
        // Yanlış repo fonk. deneme amaçlı yazıldı
 
@@ -59,9 +70,11 @@ public class LoanService {
     }
 
 
-    public LoanDTO getLoanById(Long loanId, Long userId) throws ResourceNotFoundException {
-        return loanRepository.getLoanByLoanId(userId,loanId)
+    public Loan getLoanById(Long loanId, Long userId) throws ResourceNotFoundException {
+        return loanRepository.getLoanByLoanId(loanId,userId)
                             .orElseThrow(() -> new ResourceNotFoundException("Loan Not Found"));
 
     }
+
+    */
 }
