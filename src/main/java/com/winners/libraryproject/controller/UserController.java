@@ -3,6 +3,7 @@ package com.winners.libraryproject.controller;
 import com.winners.libraryproject.dto.UserDTO;
 import com.winners.libraryproject.entity.User;
 import com.winners.libraryproject.service.UserService;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -13,15 +14,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Controller
-@RequestMapping()
+@RestController
+@RequestMapping
+@AllArgsConstructor
 public class UserController {
 
     private final UserService userService;
 
-    public UserController(UserService userService){
-        this.userService=userService;
-    }
 
     @PostMapping(path="/register")
     public ResponseEntity<Map<String, Boolean>> registerUser(@RequestBody User user){
