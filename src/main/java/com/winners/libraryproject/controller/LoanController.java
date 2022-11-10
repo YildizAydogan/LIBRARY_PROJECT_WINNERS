@@ -10,11 +10,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @RestController
 @RequestMapping("/loans")
@@ -28,6 +30,22 @@ public class LoanController {
     LoanService loanService;
 
 //-----------------LOANS----search------------------------------
+
+    @GetMapping()
+    public ResponseEntity<List<Loan>>getLoansWithPageByUserId(HttpServletRequest request,
+                                                              @RequestParam ("page") int page,
+                                                              @RequestParam("size") int size,
+                                                              @RequestParam("sort") String prop,
+                                                              @RequestParam("direction") Sort.Direction direction){
+
+        Long userId=(Long)request.getAttribute("id");
+
+        Pageable pageable= PageRequest.of(page, size, Sort.by(direction,prop));
+        List<Loan>loans=loanService.findLoansWithPageByUserId(userId,pageable);
+        return new ResponseEntity<>(loans, HttpStatus.OK);
+
+    }
+
     /*
 @GetMapping("")
 @PreAuthorize("hasRole('MEMBER')")
