@@ -48,7 +48,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
                 Optional<User> user = userRepository.findById(id);
 
                 request.setAttribute("id", user.get().getId());
-                request.setAttribute("role",user.get().getRoles());
+
 
                 UserDetails userDetails = userDetailsService.loadUserByUsername(user.get().getEmail());
 
@@ -63,7 +63,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
             logger.error("User Authentication error");
         }
 
-        filterChain.doFilter(request, response);
+        filterChain.doFilter(request,response);
     }
 
     private String parseJwt(HttpServletRequest request) {
@@ -80,7 +80,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
         AntPathMatcher antPathMatcher = new AntPathMatcher();
         return antPathMatcher.match("/register", request.getServletPath())
-                || antPathMatcher.match("/signin", request.getServletPath());
+                || antPathMatcher.match("/login", request.getServletPath());
     }
 
 

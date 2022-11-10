@@ -20,6 +20,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class UserCreatedDTO {
 
+    private Long id;
 
     @Size(min = 2, max = 30)
     @NotNull(message = "Please enter your firstName")
@@ -66,7 +67,7 @@ public class UserCreatedDTO {
 
 
     @NotNull(message = "Please enter your builtIn")
-    private Boolean builtIn = false;
+    private Boolean builtIn;
 
     private Long roleId;
 }
