@@ -13,6 +13,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.security.auth.message.AuthException;
@@ -31,6 +33,7 @@ public class UserService {
     private UserRepository userRepository;
 
     private final RoleRepository roleRepository;
+    private final PasswordEncoder passwordEncoder;
 
     private final static String USER_NOT_FOUND_MSG = "user with id %d not found";
 
@@ -43,8 +46,10 @@ public class UserService {
         }
 
         LocalDateTime createDate=LocalDateTime.now();
-
         user.setCreateDate(createDate);
+
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
 
         Set<Role> roles = new HashSet<>();
         Role memberRole = roleRepository.findByName(UserRole.ROLE_MEMBER);
@@ -82,8 +87,8 @@ public class UserService {
         try {
             Optional<User> user= userRepository.findByEmail(email);
 
-            if (!user.get().getPassword().equals(password))
-                throw  new AuthException("invalid credentials");
+            if (!BCrypt.checkpw(password, user.get().getPassword()))
+                throw new AuthException("invalid credentials");
 
         }catch (Exception e){
             throw new AuthException("invalid credentials");
