@@ -99,7 +99,7 @@ public class Book {
 
     @Column(name = "create_date",nullable = false)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime createDate;
+    private LocalDateTime createDate = LocalDateTime.now();
 
     @Column(name ="builtIn", nullable = false)
     private Boolean builtIn;
