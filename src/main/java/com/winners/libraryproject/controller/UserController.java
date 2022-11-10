@@ -68,7 +68,7 @@ public class UserController {
 
     }
 
-    @PostMapping("/signin")
+    @PostMapping("/signIn")
     public ResponseEntity<String> login(@RequestBody Map<String, String> userMap) throws AuthException {
         String email =  userMap.get("email");
         String password =  userMap.get("password");
