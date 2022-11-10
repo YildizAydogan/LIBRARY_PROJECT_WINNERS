@@ -40,6 +40,11 @@ public class AuthTokenFilter extends OncePerRequestFilter {
             if (jwt != null && jwtUtils.validateJwtToken(jwt)) {
                 Long id = jwtUtils.getIdFromJwtToken(jwt);
 
+                /* eski projelerde bu şekilde
+
+                request.setAttribute("id", id);
+                */
+
                 Optional<User> user = userRepository.findById(id);
 
                 request.setAttribute("id", user.get().getId());

@@ -78,7 +78,7 @@ public class UserService {
         try {
             Optional<User> user= userRepository.findByEmail(email);
 
-            if (!user.equals(password))
+            if (!user.get().getPassword().equals(password))
                 throw  new AuthException("invalid credentials");
 
         }catch (Exception e){
