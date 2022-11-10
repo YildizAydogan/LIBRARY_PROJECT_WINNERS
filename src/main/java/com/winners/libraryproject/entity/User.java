@@ -4,6 +4,7 @@ package com.winners.libraryproject.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.winners.libraryproject.entity.enumeration.UserRole;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,6 +21,7 @@ import java.util.Set;
 
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @Table(name = "users")
@@ -89,6 +91,21 @@ public class User {
     @OneToMany(mappedBy = "userId")
     private Set<Loan> loans;
 
+   /* public Set<String> getRole(){
+        Set<String>roles1=new HashSet<>();
 
+        Role[] role=roles.toArray(new Role[roles.size()]);
+
+        for (int i=0;i<roles.size();i++){
+            if(role[i].getName().equals(UserRole.ROLE_ADMIN))
+                roles1.add("Admin");
+            else if (role[i].getName().equals(UserRole.ROLE_STAFF)) {
+                roles1.add("Staff");
+            } else
+                roles1.add("Member");
+        }
+        return roles1;
+    }
+*/
 
 }

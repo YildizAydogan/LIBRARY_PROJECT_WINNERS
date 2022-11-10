@@ -53,8 +53,10 @@ public class UserDTO {
 
         for (int i=0;i<roles.size();i++){
             if(role[i].getName().equals(UserRole.ROLE_ADMIN))
-                roles1.add("Administirator");
-            else
+                roles1.add("Admin");
+            else if (role[i].getName().equals(UserRole.ROLE_STAFF)) {
+                roles1.add("Staff");
+            } else
                 roles1.add("Member");
         }
         this.roles=roles1;
