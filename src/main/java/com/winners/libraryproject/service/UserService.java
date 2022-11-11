@@ -46,7 +46,6 @@ public class UserService {
         }
 
         LocalDateTime createDate=LocalDateTime.now();
-
         user.setCreateDate(createDate);
 
         String encodedPassword = passwordEncoder.encode(user.getPassword());
@@ -73,7 +72,7 @@ public class UserService {
 
         UserDTO userDTO=new UserDTO();
         userDTO.setRoles(user.getRoles());
-        return new UserDTO(user.getFirstName(), user.getLastName(),user.getScore(),user.getAddress(),user.getPhone(),user.getBirthDate(),user.getEmail(),user.getCreateDate(),user.getBuiltIn(),userDTO.getRoles() );
+        return new UserDTO(user.getFirstName(), user.getLastName(),user.getScore(),user.getAddress(),user.getPhone(),user.getBirthDate(),user.getEmail(),user.getCreateDate(),user.getResetPasswordCode(),user.getBuiltIn(),userDTO.getRoles() );
     }
 
 
@@ -88,11 +87,8 @@ public class UserService {
         try {
             Optional<User> user= userRepository.findByEmail(email);
 
-
             if (!BCrypt.checkpw(password, user.get().getPassword()))
-
-
-                throw  new AuthException("invalid credentials");
+                throw new AuthException("invalid credentials");
 
         }catch (Exception e){
             throw new AuthException("invalid credentials");
