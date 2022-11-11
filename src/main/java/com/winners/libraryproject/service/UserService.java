@@ -72,7 +72,7 @@ public class UserService {
 
         UserDTO userDTO=new UserDTO();
         userDTO.setRoles(user.getRoles());
-        return new UserDTO(user.getFirstName(), user.getLastName(),user.getScore(),user.getAddress(),user.getPhone(),user.getBirthDate(),user.getEmail(),user.getCreateDate(),user.getResetPasswordCode(),user.getBuiltIn(),userDTO.getRoles() );
+        return new UserDTO(user.getFirstName(), user.getLastName(),user.getScore(),user.getAddress(),user.getPhone(),user.getBirthDate(),user.getEmail(),user.getCreateDate(),user.getBuiltIn(),userDTO.getRoles() );
     }
 
 
