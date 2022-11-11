@@ -46,7 +46,6 @@ public class UserService {
         }
 
         LocalDateTime createDate=LocalDateTime.now();
-
         user.setCreateDate(createDate);
 
         String encodedPassword = passwordEncoder.encode(user.getPassword());
@@ -88,11 +87,8 @@ public class UserService {
         try {
             Optional<User> user= userRepository.findByEmail(email);
 
-
             if (!BCrypt.checkpw(password, user.get().getPassword()))
-
-
-                throw  new AuthException("invalid credentials");
+                throw new AuthException("invalid credentials");
 
         }catch (Exception e){
             throw new AuthException("invalid credentials");
