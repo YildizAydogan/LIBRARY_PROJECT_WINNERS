@@ -1,6 +1,6 @@
 package com.winners.libraryproject.service;
 
-import com.winners.libraryproject.dto.UserDTO;
+import com.winners.libraryproject.dto.*;
 import com.winners.libraryproject.entity.Role;
 import com.winners.libraryproject.entity.User;
 import com.winners.libraryproject.entity.enumeration.UserRole;
@@ -11,9 +11,14 @@ import com.winners.libraryproject.repository.RoleRepository;
 import com.winners.libraryproject.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.security.auth.message.AuthException;
+import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.List;
@@ -28,8 +33,10 @@ public class UserService {
     private UserRepository userRepository;
 
     private final RoleRepository roleRepository;
+    private final PasswordEncoder passwordEncoder;
 
     private final static String USER_NOT_FOUND_MSG = "user with id %d not found";
+
 
 
     public void register(User user){
@@ -39,8 +46,10 @@ public class UserService {
         }
 
         LocalDateTime createDate=LocalDateTime.now();
-
         user.setCreateDate(createDate);
+
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
 
         Set<Role> roles = new HashSet<>();
         Role memberRole = roleRepository.findByName(UserRole.ROLE_MEMBER);
@@ -63,31 +72,31 @@ public class UserService {
 
         UserDTO userDTO=new UserDTO();
         userDTO.setRoles(user.getRoles());
-        return new UserDTO(user.getFirstName(), user.getLastName(),user.getScore(),user.getAddress(),user.getPhone(),user.getBirthDate(),user.getEmail(),user.getCreateDate(),user.getResetPasswordCode(),user.getBuiltIn(),userDTO.getRoles() );
+        return new UserDTO(user.getFirstName(), user.getLastName(),user.getScore(),user.getAddress(),user.getPhone(),user.getBirthDate(),user.getEmail(),user.getCreateDate(),user.getBuiltIn(),userDTO.getRoles() );
     }
 
 
     public void removeById(Long id){
         User user = userRepository.findById(id)
-                        .orElseThrow(() -> new ResourceNotFoundException(String.format(USER_NOT_FOUND_MSG, id)));
+                .orElseThrow(() -> new ResourceNotFoundException(String.format(USER_NOT_FOUND_MSG, id)));
 
         userRepository.deleteById(id);
     }
 
     public void login(String email,String password) throws AuthException {
         try {
-        User user= userRepository.findByEmail(email);
+            Optional<User> user= userRepository.findByEmail(email);
 
-        if (!user.getPassword().equals(password))
-            throw  new AuthException("invalid credentials");
+            if (!BCrypt.checkpw(password, user.get().getPassword()))
+                throw new AuthException("invalid credentials");
 
-         }catch (Exception e){
-             throw new AuthException("invalid credentials");
+        }catch (Exception e){
+            throw new AuthException("invalid credentials");
+        }
     }
-    }
 
-  /*  public void updateUser(Long  id,UserDTO userDTO){
-        boolean emailExists = userRepository.existsByEmail(userDTO.getEmail());
+    public void updateUser(Long  id, UserUpdateDTO userUpdateDTO){
+        boolean emailExists = userRepository.existsByEmail(userUpdateDTO.getEmail());
 
         Optional<User> userDetails=userRepository.findById(id);
 
@@ -95,44 +104,106 @@ public class UserService {
             throw new BadRequestException("You dont have permission to update user info!");
         }
 
-        if (emailExists && !userDTO.getEmail().equals(userDetails.get().getEmail())){
+        if (emailExists && !userUpdateDTO.getEmail().equals(userDetails.get().getEmail())){
             throw new ConflictException("Error: Email is already in use!");
         }
-
-       userRepository.update(id,userDTO.getFirstName(),userDTO.getLastName()
-                ,userDTO.getAddress(),userDTO.getPhone(),userDTO.getEmail(),userDTO.getResetPasswordCode());
-    }
-*/
-
-    public void createdUser(User user){
-
-        if (userRepository.existsByEmail(user.getEmail())){
-            throw new ConflictException("Error: Email is already in use!");
-        }
-
-        LocalDateTime createDate=LocalDateTime.now();
-
-        user.setCreateDate(createDate);
-
+        User user=new User();
+        user.setId(id);
+        user.setFirstName(userUpdateDTO.getFirstName());
+        user.setLastName(userUpdateDTO.getLastName());
+        user.setAddress(userUpdateDTO.getAddress());
+        user.setPhone(userUpdateDTO.getPhone());
+        user.setBirthDate(userUpdateDTO.getBirthDate());
+        user.setEmail(userUpdateDTO.getEmail());
+        user.setPassword(userUpdateDTO.getPassword());
 
         userRepository.save(user);
     }
 
-    public void addLoans(){
 
+    public void userCreated(UserCreatedDTO userCreatedDTO){
+
+
+        Set<Role> roles=new HashSet<>();
+        Role memberRole ;
+        if (userCreatedDTO.getRoleId()==1){
+            memberRole = roleRepository.findByName(UserRole.ROLE_ADMIN);
+        }else if (userCreatedDTO.getRoleId()==2){
+            memberRole = roleRepository.findByName(UserRole.ROLE_STAFF);
+        }else {
+            memberRole = roleRepository.findByName(UserRole.ROLE_MEMBER);
+        }
+        roles.add(memberRole);
+
+
+        User user= new User();
+        user.setId(0L);
+        user.setFirstName(userCreatedDTO.getFirstName());
+        user.setLastName(userCreatedDTO.getLastName());
+        user.setAddress(userCreatedDTO.getAddress());
+        user.setPhone(userCreatedDTO.getPhone());
+        user.setBirthDate(userCreatedDTO.getBirthDate());
+        user.setEmail(userCreatedDTO.getEmail());
+        user.setPassword(userCreatedDTO.getPassword());
+        user.setCreateDate(userCreatedDTO.getCreateDate());
+        user.setResetPasswordCode(userCreatedDTO.getResetPasswordCode());
+        user.setRoles(roles);
+
+        userRepository.save(user);
     }
 
-    public void getUsersAllInformations(){
+    public Page<UserToUserDTO> getUserLoanPage(Pageable pageable){
 
+        Page<User> users=userRepository.findAll(pageable);
+        Page<UserToUserDTO> dtoPage=  users.map(user->new  UserToUserDTO(user));
+        return dtoPage;
+    }
+
+    public Page getUsersPage(String name ,Pageable pageable){
+
+        if (name!=null){
+            return userRepository.findUsersWithQuery(name, pageable);
+        }else {
+            Page<User> users = userRepository.findAll(pageable);
+            Page dtoPage = users.map(user -> new UserToResponse(user));
+            return dtoPage;
+        }
     }
 
 
-    public Set<Role> addRoles(String rol) {
-        Set<Role> roles = new HashSet<>();
+    public Role addRoles(String userRoles) {
 
+        if (userRoles == null) {
+            return roleRepository.findByName(UserRole.ROLE_MEMBER);
 
+        } else {
 
-        return roles;
+            if ( "Administrator".equals(userRoles)) {
+                return roleRepository.findByName(UserRole.ROLE_ADMIN);
+
+            } else{
+                return roleRepository.findByName(UserRole.ROLE_STAFF);
+
+            }
+
+        }
     }
+
+
+   /* public void updatePassword(Long id, String newPassword, String oldPassword) throws BadRequestException {
+        Optional<User> user = userRepository.findById(id);
+        if (user.get().getBuiltIn()) {
+            throw new BadRequestException("You dont have permission to update password!");
+        }
+
+        if (!BCrypt.hashpw(oldPassword, user.get().getPassword()).equals(user.get().getPassword()))
+            throw new BadRequestException("password does not match");
+
+        String hashedPassword = passwordEncoder.encode(newPassword);
+        user.get().setPassword(hashedPassword);
+
+        userRepository.save(user.get());
+    }*/
+
 
 }

@@ -1,35 +1,25 @@
-package com.winners.libraryproject.entity;
-
+package com.winners.libraryproject.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.winners.libraryproject.entity.enumeration.UserRole;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Column;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
-@Entity
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
-@Table(name = "users")
-public class User {
+@AllArgsConstructor
+@NoArgsConstructor
+public class UserCreatedDTO {
 
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Size(min = 2, max = 30)
@@ -68,9 +58,7 @@ public class User {
     @NotNull(message = "Please enter your password")
     private String password;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy/MM/dd HH:mm:ss", timezone = "Turkey")
-    @NotNull(message = "Please enter the pick up time of the createDate")
-    @Column(nullable = false)
+
     private LocalDateTime createDate=LocalDateTime.now();
 
     @NotNull(message = "Please enter your resetPasswordCode")
@@ -79,33 +67,8 @@ public class User {
 
 
     @NotNull(message = "Please enter your builtIn")
-    private Boolean builtIn = false;
+    private Boolean builtIn;
 
-    @ManyToMany()
-    @JoinTable(name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles = new HashSet<>();
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "userId")
-    private Set<Loan> loans;
-
-   /* public Set<String> getRole(){
-        Set<String>roles1=new HashSet<>();
-
-        Role[] role=roles.toArray(new Role[roles.size()]);
-
-        for (int i=0;i<roles.size();i++){
-            if(role[i].getName().equals(UserRole.ROLE_ADMIN))
-                roles1.add("Admin");
-            else if (role[i].getName().equals(UserRole.ROLE_STAFF)) {
-                roles1.add("Staff");
-            } else
-                roles1.add("Member");
-        }
-        return roles1;
-    }
-*/
-
+    private Long roleId;
 }
+
