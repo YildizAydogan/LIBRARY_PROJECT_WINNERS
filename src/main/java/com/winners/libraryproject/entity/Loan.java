@@ -47,7 +47,7 @@ public class Loan {
 
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "Germany")
-    @Column(nullable = false)
+    @Column()
     @Temporal(TemporalType.TIMESTAMP)
     private Date returnDate;
 
