@@ -89,13 +89,13 @@ public class LoanService {
             if(loanx.getReturnDate().equals(null)){
                 notReturnedBook++;
                 if (loanx.getReturnDate().before(Date.valueOf(LocalDate.now()))){
-                    new BadRequestException(String.format("You have unreturned book :", loanx.getBookId().getId()));
+                  throw  new BadRequestException(String.format("You have unreturned book :", loanx.getBookId().getId()));
                 }
             }
         }
 
         if(!loanCreatorDTO.getBookId().getLoanable()){
-            new BadRequestException(String.format("Book is not loanable :", loanCreatorDTO.getBookId().getId()));
+            throw new BadRequestException(String.format("Book is not loanable :", loanCreatorDTO.getBookId().getId()));
         }
 
 
