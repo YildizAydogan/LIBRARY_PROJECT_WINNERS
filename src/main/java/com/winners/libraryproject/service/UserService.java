@@ -57,6 +57,9 @@ public class UserService {
         roles.add(memberRole);
 
         user.setRoles(roles);
+        
+        //TODO olusturulan DTO user entity.e map edilmesi gerekir
+        
 
         userRepository.save(user);
     }

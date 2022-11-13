@@ -1,6 +1,7 @@
 package com.winners.libraryproject.controller;
 import com.winners.libraryproject.entity.Category;
 import com.winners.libraryproject.service.CategoryService;
+import org.springframework.boot.autoconfigure.data.ConditionalOnRepositoryType;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
