@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import javax.security.auth.message.AuthException;
 import javax.transaction.Transactional;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.List;
@@ -80,18 +81,25 @@ public class UserService {
 
 
     public void removeById(Long id){
-        User user = userRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException(String.format(USER_NOT_FOUND_MSG, id)));
-
-        userRepository.deleteById(id);
+        
+        try {
+            userRepository.findById(id);
+            userRepository.deleteById(id);
+        } catch (SecurityException e){
+            throw new ResourceNotFoundException(String.format(USER_NOT_FOUND_MSG, id));
+        } catch (Exception e){
+            // buraya log verilmeli
+        }
+        
     }
 
     public void login(String email,String password) throws AuthException {
         try {
             Optional<User> user= userRepository.findByEmail(email);
 
-            if (!BCrypt.checkpw(password, user.get().getPassword()))
+            if (!BCrypt.checkpw(password, user.get().getPassword())){
                 throw new AuthException("invalid credentials");
+            }                
 
         }catch (Exception e){
             throw new AuthException("invalid credentials");
