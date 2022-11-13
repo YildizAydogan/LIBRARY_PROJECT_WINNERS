@@ -39,6 +39,7 @@ public class UserController {
 
     @PostMapping(path="/register")
     public ResponseEntity<Map<String, Boolean>> registerUser(@Valid @RequestBody User user){
+        //TODO yeni bir UserDTO olusturmak gerekir
         userService.register(user);
 
         Map<String, Boolean> map = new HashMap<>();
