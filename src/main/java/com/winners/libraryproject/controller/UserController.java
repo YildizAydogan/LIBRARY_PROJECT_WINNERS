@@ -2,6 +2,10 @@ package com.winners.libraryproject.controller;
 
 import com.winners.libraryproject.dto.*;
 
+import com.winners.libraryproject.dto.User.UserCreatedDTO;
+import com.winners.libraryproject.dto.User.UserDTO;
+import com.winners.libraryproject.dto.User.UserToUserDTO;
+import com.winners.libraryproject.dto.User.UserUpdateDTO;
 import com.winners.libraryproject.entity.User;
 import com.winners.libraryproject.security.jwt.JwtUtils;
 import com.winners.libraryproject.service.UserService;

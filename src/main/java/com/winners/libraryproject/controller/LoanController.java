@@ -1,13 +1,13 @@
 package com.winners.libraryproject.controller;
 
 
-import com.winners.libraryproject.dto.LoanCreatorDTO;
-import com.winners.libraryproject.dto.LoanDTO;
-import com.winners.libraryproject.dto.UserToUserDTO;
+import com.winners.libraryproject.dto.Loan.LoanCreatorDTO;
+import com.winners.libraryproject.dto.Loan.LoanDTO;
+import com.winners.libraryproject.dto.Loan.LoanUpdateResponse;
+import com.winners.libraryproject.dto.Loan.UpdateLoanDTO;
 import com.winners.libraryproject.entity.Loan;
 import com.winners.libraryproject.service.LoanService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -109,6 +109,13 @@ public class LoanController {
         return new ResponseEntity<>(loan, HttpStatus.OK);
     }
 //-----------------/loans/:id put----------------------------------
-
+@PutMapping("/loans/{id}")
+@PreAuthorize("hasRole('ADMIN') or  hasRole('EMPLOYEE')")
+public ResponseEntity<LoanUpdateResponse> updateLoan(@PathVariable(value = "id") Long loanId,
+                                                     @Valid @RequestBody UpdateLoanDTO updateLoanDTO
+) {
+    LoanUpdateResponse updatedLoanResponse =loanService.updateLoan(loanId, updateLoanDTO);
+    return new ResponseEntity<>(updatedLoanResponse, HttpStatus.OK);
+}
 
 }
