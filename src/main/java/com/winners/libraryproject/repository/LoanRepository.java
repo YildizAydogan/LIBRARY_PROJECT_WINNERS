@@ -1,9 +1,8 @@
 package com.winners.libraryproject.repository;
 
-import com.winners.libraryproject.dto.LoanDTO;
+import com.winners.libraryproject.dto.Loan.LoanDTO;
 import com.winners.libraryproject.entity.Book;
 import com.winners.libraryproject.entity.Loan;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

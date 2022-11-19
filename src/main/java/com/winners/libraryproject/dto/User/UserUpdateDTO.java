@@ -1,4 +1,4 @@
-package com.winners.libraryproject.dto;
+package com.winners.libraryproject.dto.User;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;

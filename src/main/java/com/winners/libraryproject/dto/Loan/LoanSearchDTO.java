@@ -1,4 +1,4 @@
-package com.winners.libraryproject.dto;
+package com.winners.libraryproject.dto.Loan;
 
 import lombok.Data;
 

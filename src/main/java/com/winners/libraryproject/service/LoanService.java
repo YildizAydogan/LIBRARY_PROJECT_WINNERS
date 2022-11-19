@@ -1,7 +1,9 @@
 package com.winners.libraryproject.service;
 
-import com.winners.libraryproject.dto.LoanCreatorDTO;
-import com.winners.libraryproject.dto.LoanDTO;
+import com.winners.libraryproject.dto.Loan.LoanCreatorDTO;
+import com.winners.libraryproject.dto.Loan.LoanDTO;
+import com.winners.libraryproject.dto.Loan.LoanUpdateResponse;
+import com.winners.libraryproject.dto.Loan.UpdateLoanDTO;
 import com.winners.libraryproject.entity.Book;
 import com.winners.libraryproject.entity.Loan;
 import com.winners.libraryproject.entity.User;
@@ -11,18 +13,15 @@ import com.winners.libraryproject.repository.BookRepository;
 import com.winners.libraryproject.repository.LoanRepository;
 import com.winners.libraryproject.repository.UserRepository;
 import lombok.AllArgsConstructor;
-import net.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import java.sql.Date;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @AllArgsConstructor
 @Service
@@ -123,6 +122,46 @@ public class LoanService {
 
     }
     //-----------------/loans/:id put----------------------------------
+
+    //TODO Bu kod gözden geçirilmeli.
+    public LoanUpdateResponse updateLoan(Long loanId, UpdateLoanDTO updateLoanDTO) throws BadRequestException {
+        Loan loan = loanRepository.findById(loanId).orElseThrow(()->
+                new ResourceNotFoundException(String.format("This loan not found : ", loanId)));
+
+        User user = loan.getUserId();
+        Book book = loan.getBookId();
+
+        try {
+            if(updateLoanDTO.getReturnDate()!=null){
+                book.setLoanable(true);
+                loan.setReturnDate(updateLoanDTO.getReturnDate());
+                bookRepository.save(book);
+                loanRepository.save(loan);
+                if(updateLoanDTO.getReturnDate().equals(loan.getReturnDate()) || updateLoanDTO.getReturnDate().before(loan.getReturnDate())){
+                    user.setScore(user.getScore()+1);
+                    userRepository.save(user);
+                    return new LoanUpdateResponse(loan);
+                }else{
+                    user.setScore(user.getScore()-1);
+                    userRepository.save(user);
+                    return new LoanUpdateResponse(loan);
+                }
+            }else{
+                loan.setExpireDate(updateLoanDTO.getExpireDate());
+                loan.setNotes(updateLoanDTO.getNotes());
+                bookRepository.save(book);
+                userRepository.save(user);
+                loanRepository.save(loan);
+                return new LoanUpdateResponse(loan);
+
+            }
+        }catch(RuntimeException e){
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+        }finally{
+            return new LoanUpdateResponse(loan);
+        }
+
+    }
 
 
 }
