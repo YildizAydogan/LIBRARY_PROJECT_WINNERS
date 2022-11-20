@@ -18,7 +18,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.security.auth.message.AuthException;
-import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.List;
@@ -39,7 +38,7 @@ public class UserService {
 
 
 
-    public void register(User user){
+    public User register(User user){
 
         if (userRepository.existsByEmail(user.getEmail())){
             throw new ConflictException("Error: Email is already in use!");
@@ -58,7 +57,9 @@ public class UserService {
 
         user.setRoles(roles);
 
-        userRepository.save(user);
+        User userresult=userRepository.save(user);
+
+        return userresult;
     }
 
 
@@ -135,6 +136,8 @@ public class UserService {
         }
         roles.add(memberRole);
 
+        String encodedPassword = passwordEncoder.encode(userCreatedDTO.getPassword());
+
 
         User user= new User();
         user.setId(0L);
@@ -144,7 +147,7 @@ public class UserService {
         user.setPhone(userCreatedDTO.getPhone());
         user.setBirthDate(userCreatedDTO.getBirthDate());
         user.setEmail(userCreatedDTO.getEmail());
-        user.setPassword(userCreatedDTO.getPassword());
+        user.setPassword(encodedPassword);
         user.setCreateDate(userCreatedDTO.getCreateDate());
         user.setResetPasswordCode(userCreatedDTO.getResetPasswordCode());
         user.setRoles(roles);

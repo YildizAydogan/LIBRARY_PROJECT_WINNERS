@@ -1,583 +1,451 @@
-"2022-11-05 19:32:37,286 ERROR [restartedMain] org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter:
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to bind properties under 'logging.level.web' to org.springframework.boot.logging.LogLevel:
-
-    Property: logging.level.web
-    Value: "'[org.springframework.web]': INFO, '[org.hibernate]': INFO, '[com.green-rent]': DEBUG"
-    Origin: class path resource [application.properties] - 16:22
-    Reason: failed to convert java.lang.String to org.springframework.boot.logging.LogLevel (caused by java.lang.IllegalArgumentException: No enum constant org.springframework.boot.logging.LogLevel.'[org.springframework.web]': INFO, '[org.hibernate]': INFO, '[com.green-rent]': DEBUG)
-
-Action:
-
-Update your application's configuration. The following values are valid:
-
-    DEBUG
-    ERROR
-    FATAL
-    INFO
-    OFF
-    TRACE
-    WARN
-
-""2022-11-05 19:33:13,266 ERROR [restartedMain] org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter:
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to bind properties under 'logging.level.web' to org.springframework.boot.logging.LogLevel:
-
-    Property: logging.level.web
-    Value: "org.springframework.web"
-    Origin: class path resource [application.properties] - 16:21
-    Reason: failed to convert java.lang.String to org.springframework.boot.logging.LogLevel (caused by java.lang.IllegalArgumentException: No enum constant org.springframework.boot.logging.LogLevel.org.springframework.web)
-
-Action:
-
-Update your application's configuration. The following values are valid:
-
-    DEBUG
-    ERROR
-    FATAL
-    INFO
-    OFF
-    TRACE
-    WARN
-
-""2022-11-05 19:33:21,221 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:Starting LibraryProjectApplication using Java 18.0.2.1 on Aydogan-Razer with PID 9296 (C:\Users\yildi\IdeaProjects\LIBRARY_PROJECT_WINNERS\target\classes started by yildi in C:\Users\yildi\IdeaProjects\LIBRARY_PROJECT_WINNERS)
-""2022-11-05 19:33:21,222 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:No active profile set, falling back to 1 default profile: "default"
-""2022-11-05 19:33:21,261 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor:Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-""2022-11-05 19:33:21,262 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor:For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-""2022-11-05 19:33:21,950 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-""2022-11-05 19:33:22,031 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 73 ms. Found 7 JPA repository interfaces.
-""2022-11-05 19:33:22,560 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat initialized with port(s): 8081 (http)
-""2022-11-05 19:33:22,569 INFO  [restartedMain] org.apache.catalina.core.StandardService:Starting service [Tomcat]
-""2022-11-05 19:33:22,570 INFO  [restartedMain] org.apache.catalina.core.StandardEngine:Starting Servlet engine: [Apache Tomcat/9.0.65]
-""2022-11-05 19:33:22,661 INFO  [restartedMain] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring embedded WebApplicationContext
-""2022-11-05 19:33:22,661 INFO  [restartedMain] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:Root WebApplicationContext: initialization completed in 1399 ms
-""2022-11-05 19:33:22,809 INFO  [restartedMain] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
-""2022-11-05 19:33:22,857 INFO  [restartedMain] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.6.11.Final
-""2022-11-05 19:33:22,991 INFO  [restartedMain] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-""2022-11-05 19:33:23,096 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
-""2022-11-05 19:33:23,225 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
-""2022-11-05 19:33:23,240 INFO  [restartedMain] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-""2022-11-05 19:33:24,038 INFO  [restartedMain] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-""2022-11-05 19:33:24,045 INFO  [restartedMain] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
-""2022-11-05 19:33:24,516 WARN  [restartedMain] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-""2022-11-05 19:33:24,783 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@55cdc887, org.springframework.security.web.context.SecurityContextPersistenceFilter@277e6c20, org.springframework.security.web.header.HeaderWriterFilter@baf3afe, org.springframework.security.web.authentication.logout.LogoutFilter@552dc1f9, com.winners.libraryproject.security.jwt.AuthTokenFilter@78af788, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@394953f3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@772ea2db, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6b269a7a, org.springframework.security.web.session.SessionManagementFilter@36b43653, org.springframework.security.web.access.ExceptionTranslationFilter@2d044681, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@10582653]
-""2022-11-05 19:33:25,504 INFO  [restartedMain] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer:LiveReload server is running on port 35729
-""2022-11-05 19:33:25,539 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat started on port(s): 8081 (http) with context path ''
-""2022-11-05 19:33:25,547 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:Started LibraryProjectApplication in 4.663 seconds (JVM running for 5.293)
-""2022-11-05 19:33:38,135 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
-""2022-11-05 19:33:38,138 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
-""2022-11-05 19:33:38,141 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
-""2022-11-05 19:33:40,556 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:Starting LibraryProjectApplication using Java 18.0.2.1 on Aydogan-Razer with PID 14220 (C:\Users\yildi\IdeaProjects\LIBRARY_PROJECT_WINNERS\target\classes started by yildi in C:\Users\yildi\IdeaProjects\LIBRARY_PROJECT_WINNERS)
-""2022-11-05 19:33:40,557 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:No active profile set, falling back to 1 default profile: "default"
-""2022-11-05 19:33:40,596 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor:Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-""2022-11-05 19:33:40,596 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor:For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-""2022-11-05 19:33:41,264 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-""2022-11-05 19:33:41,340 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 69 ms. Found 7 JPA repository interfaces.
-""2022-11-05 19:33:41,860 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat initialized with port(s): 8081 (http)
-""2022-11-05 19:33:41,868 INFO  [restartedMain] org.apache.catalina.core.StandardService:Starting service [Tomcat]
-""2022-11-05 19:33:41,868 INFO  [restartedMain] org.apache.catalina.core.StandardEngine:Starting Servlet engine: [Apache Tomcat/9.0.65]
-""2022-11-05 19:33:41,967 INFO  [restartedMain] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring embedded WebApplicationContext
-""2022-11-05 19:33:41,967 INFO  [restartedMain] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:Root WebApplicationContext: initialization completed in 1371 ms
-""2022-11-05 19:33:42,096 INFO  [restartedMain] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
-""2022-11-05 19:33:42,142 INFO  [restartedMain] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.6.11.Final
-""2022-11-05 19:33:42,274 INFO  [restartedMain] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-""2022-11-05 19:33:42,371 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
-""2022-11-05 19:33:42,494 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
-""2022-11-05 19:33:42,509 INFO  [restartedMain] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-""2022-11-05 19:33:43,300 INFO  [restartedMain] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-""2022-11-05 19:33:43,308 INFO  [restartedMain] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
-""2022-11-05 19:33:43,779 WARN  [restartedMain] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-""2022-11-05 19:33:44,025 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@10deb0c4, org.springframework.security.web.context.SecurityContextPersistenceFilter@30e152d4, org.springframework.security.web.header.HeaderWriterFilter@abc0e58, org.springframework.security.web.authentication.logout.LogoutFilter@7124e478, com.winners.libraryproject.security.jwt.AuthTokenFilter@f71385, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3ae9f501, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3600f9e7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4bfad289, org.springframework.security.web.session.SessionManagementFilter@33476d27, org.springframework.security.web.access.ExceptionTranslationFilter@5e8365af, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5e6cd69f]
-""2022-11-05 19:33:44,721 INFO  [restartedMain] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer:LiveReload server is running on port 35729
-""2022-11-05 19:33:44,757 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat started on port(s): 8081 (http) with context path ''
-""2022-11-05 19:33:44,771 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:Started LibraryProjectApplication in 4.55 seconds (JVM running for 5.158)
-""2022-11-05 19:33:55,748 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
-""2022-11-05 19:33:55,750 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
-""2022-11-05 19:33:55,752 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
-""2022-11-05 19:36:31,151 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:Starting LibraryProjectApplication using Java 18.0.2.1 on Aydogan-Razer with PID 11056 (C:\Users\yildi\IdeaProjects\LIBRARY_PROJECT_WINNERS\target\classes started by yildi in C:\Users\yildi\IdeaProjects\LIBRARY_PROJECT_WINNERS)
-""2022-11-05 19:36:31,152 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:No active profile set, falling back to 1 default profile: "default"
-""2022-11-05 19:36:31,188 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor:Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-""2022-11-05 19:36:31,188 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor:For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-""2022-11-05 19:36:31,829 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-""2022-11-05 19:36:31,903 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 67 ms. Found 7 JPA repository interfaces.
-""2022-11-05 19:36:32,437 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat initialized with port(s): 8081 (http)
-""2022-11-05 19:36:32,445 INFO  [restartedMain] org.apache.catalina.core.StandardService:Starting service [Tomcat]
-""2022-11-05 19:36:32,446 INFO  [restartedMain] org.apache.catalina.core.StandardEngine:Starting Servlet engine: [Apache Tomcat/9.0.65]
-""2022-11-05 19:36:32,544 INFO  [restartedMain] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring embedded WebApplicationContext
-""2022-11-05 19:36:32,544 INFO  [restartedMain] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:Root WebApplicationContext: initialization completed in 1356 ms
-""2022-11-05 19:36:32,664 INFO  [restartedMain] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
-""2022-11-05 19:36:32,707 INFO  [restartedMain] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.6.11.Final
-""2022-11-05 19:36:32,835 INFO  [restartedMain] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-""2022-11-05 19:36:32,929 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
-""2022-11-05 19:36:33,048 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
-""2022-11-05 19:36:33,062 INFO  [restartedMain] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-""2022-11-05 19:36:33,786 INFO  [restartedMain] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-""2022-11-05 19:36:33,793 INFO  [restartedMain] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
-""2022-11-05 19:36:34,231 WARN  [restartedMain] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-""2022-11-05 19:36:34,479 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@68ab8ad4, org.springframework.security.web.context.SecurityContextPersistenceFilter@5aa4722f, org.springframework.security.web.header.HeaderWriterFilter@3600f9e7, org.springframework.security.web.authentication.logout.LogoutFilter@10393364, com.winners.libraryproject.security.jwt.AuthTokenFilter@a7f6300, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4b687bc9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@53277f99, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@705dc0de, org.springframework.security.web.session.SessionManagementFilter@54f74384, org.springframework.security.web.access.ExceptionTranslationFilter@3b8b3c24, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3ec93b41]
-""2022-11-05 19:36:35,141 INFO  [restartedMain] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer:LiveReload server is running on port 35729
-""2022-11-05 19:36:35,174 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat started on port(s): 8081 (http) with context path ''
-""2022-11-05 19:36:35,182 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:Started LibraryProjectApplication in 4.337 seconds (JVM running for 4.915)
-""2022-11-05 19:39:33,172 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
-""2022-11-05 19:39:33,175 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
-""2022-11-05 19:39:33,177 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
-""2022-11-05 23:46:37,899 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:Starting LibraryProjectApplication using Java 11.0.16 on DESKTOP-TFKC0CP with PID 4820 (C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS\target\classes started by basri in C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS)
-""2022-11-05 23:46:37,902 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:No active profile set, falling back to default profiles: default
-""2022-11-05 23:46:37,986 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor:Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-""2022-11-05 23:46:37,986 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor:For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-""2022-11-05 23:46:39,564 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-""2022-11-05 23:46:39,731 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 151 ms. Found 7 JPA repository interfaces.
-""2022-11-05 23:46:40,298 INFO  [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@4e3d9449' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-""2022-11-05 23:46:40,303 INFO  [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-""2022-11-05 23:46:40,686 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat initialized with port(s): 8081 (http)
-""2022-11-05 23:46:40,699 INFO  [restartedMain] org.apache.catalina.core.StandardService:Starting service [Tomcat]
-""2022-11-05 23:46:40,700 INFO  [restartedMain] org.apache.catalina.core.StandardEngine:Starting Servlet engine: [Apache Tomcat/9.0.54]
-""2022-11-05 23:46:40,880 INFO  [restartedMain] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring embedded WebApplicationContext
-""2022-11-05 23:46:40,881 INFO  [restartedMain] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:Root WebApplicationContext: initialization completed in 2894 ms
-""2022-11-05 23:46:41,111 INFO  [restartedMain] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
-""2022-11-05 23:46:41,294 INFO  [restartedMain] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.4.32.Final
-""2022-11-05 23:46:41,548 INFO  [restartedMain] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-""2022-11-05 23:46:41,741 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
-""2022-11-05 23:46:42,077 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
-""2022-11-05 23:46:42,102 INFO  [restartedMain] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-""2022-11-05 23:46:43,914 INFO  [restartedMain] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-""2022-11-05 23:46:43,928 INFO  [restartedMain] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
-""2022-11-05 23:46:44,545 WARN  [restartedMain] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-""2022-11-05 23:46:45,179 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5c62dd5b, org.springframework.security.web.context.SecurityContextPersistenceFilter@48034d1, org.springframework.security.web.header.HeaderWriterFilter@1b9059f8, org.springframework.security.web.authentication.logout.LogoutFilter@5ba39ed7, com.winners.libraryproject.security.jwt.AuthTokenFilter@2d2d8b3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@17dbbb42, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5a6d903e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@bb83d36, org.springframework.security.web.session.SessionManagementFilter@3cafa1ea, org.springframework.security.web.access.ExceptionTranslationFilter@7b96494c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@e9229d2]
-""2022-11-05 23:46:45,712 INFO  [restartedMain] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer:LiveReload server is running on port 35729
-""2022-11-05 23:46:45,769 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat started on port(s): 8081 (http) with context path ''
-""2022-11-05 23:46:45,787 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:Started LibraryProjectApplication in 8.691 seconds (JVM running for 11.43)
-""2022-11-05 23:51:55,993 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
-""2022-11-05 23:51:56,177 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
-""2022-11-05 23:51:56,239 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
-""2022-11-10 22:59:17,325 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:Starting LibraryProjectApplication using Java 11.0.16 on DESKTOP-TFKC0CP with PID 6780 (C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS\target\classes started by basri in C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS)
-""2022-11-10 22:59:17,327 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:No active profile set, falling back to default profiles: default
-""2022-11-10 22:59:17,412 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor:Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-""2022-11-10 22:59:17,413 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor:For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-""2022-11-10 22:59:19,477 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-""2022-11-10 22:59:19,615 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 127 ms. Found 7 JPA repository interfaces.
-""2022-11-10 22:59:20,259 INFO  [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@614c9784' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-""2022-11-10 22:59:20,264 INFO  [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-""2022-11-10 22:59:20,697 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat initialized with port(s): 8081 (http)
-""2022-11-10 22:59:20,710 INFO  [restartedMain] org.apache.catalina.core.StandardService:Starting service [Tomcat]
-""2022-11-10 22:59:20,710 INFO  [restartedMain] org.apache.catalina.core.StandardEngine:Starting Servlet engine: [Apache Tomcat/9.0.54]
-""2022-11-10 22:59:20,864 INFO  [restartedMain] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring embedded WebApplicationContext
-""2022-11-10 22:59:20,865 INFO  [restartedMain] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:Root WebApplicationContext: initialization completed in 3450 ms
-""2022-11-10 22:59:21,113 INFO  [restartedMain] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
-""2022-11-10 22:59:21,335 INFO  [restartedMain] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.4.32.Final
-""2022-11-10 22:59:21,626 INFO  [restartedMain] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-""2022-11-10 22:59:21,775 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
-""2022-11-10 22:59:22,140 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
-""2022-11-10 22:59:22,169 INFO  [restartedMain] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-""2022-11-10 22:59:30,299 INFO  [restartedMain] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-""2022-11-10 22:59:30,311 INFO  [restartedMain] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
-""2022-11-10 22:59:31,529 WARN  [restartedMain] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-""2022-11-10 22:59:32,555 INFO  [restartedMain] springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping:Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-""2022-11-10 22:59:32,702 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-ui.html'] with []
-""2022-11-10 22:59:32,703 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/v2/api-docs'] with []
-""2022-11-10 22:59:32,703 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/configuration/**'] with []
-""2022-11-10 22:59:32,704 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-resources/**'] with []
-""2022-11-10 22:59:32,704 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/webjars/**'] with []
-""2022-11-10 22:59:32,705 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/api-docs/**'] with []
-""2022-11-10 22:59:32,754 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@52a4c134, org.springframework.security.web.context.SecurityContextPersistenceFilter@16c22e0b, org.springframework.security.web.header.HeaderWriterFilter@2142f2b0, org.springframework.security.web.authentication.logout.LogoutFilter@463ffe13, com.winners.libraryproject.security.jwt.AuthTokenFilter@5159f76d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2113a23b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2f079cc9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2e21889, org.springframework.security.web.session.SessionManagementFilter@3adcd085, org.springframework.security.web.access.ExceptionTranslationFilter@5d188815, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@744326b1]
-""2022-11-10 22:59:33,030 INFO  [restartedMain] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer:LiveReload server is running on port 35729
-""2022-11-10 22:59:33,312 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat started on port(s): 8081 (http) with context path ''
-""2022-11-10 22:59:33,314 INFO  [restartedMain] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Context refreshed
-""2022-11-10 22:59:33,343 INFO  [restartedMain] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Found 1 custom documentation plugin(s)
-""2022-11-10 22:59:33,431 INFO  [restartedMain] springfox.documentation.spring.web.scanners.ApiListingReferenceScanner:Scanning for api listing references
-""2022-11-10 22:59:33,914 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:Started LibraryProjectApplication in 17.416 seconds (JVM running for 20.614)
-""2022-11-10 22:59:47,853 INFO  [http-nio-8081-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring DispatcherServlet 'dispatcherServlet'
-""2022-11-10 22:59:47,857 INFO  [http-nio-8081-exec-1] org.springframework.web.servlet.DispatcherServlet:Initializing Servlet 'dispatcherServlet'
-""2022-11-10 22:59:47,861 INFO  [http-nio-8081-exec-1] org.springframework.web.servlet.DispatcherServlet:Completed initialization in 3 ms
-""2022-11-10 23:00:19,022 ERROR [http-nio-8081-exec-3] com.winners.libraryproject.security.jwt.AuthEntryPointJwt:Unauthorized error: Full authentication is required to access this resource
-""2022-11-10 23:00:47,588 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
-""2022-11-10 23:00:47,594 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
-""2022-11-10 23:00:47,608 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
-""2022-11-10 23:01:00,316 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:Starting LibraryProjectApplication using Java 11.0.16 on DESKTOP-TFKC0CP with PID 12228 (C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS\target\classes started by basri in C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS)
-""2022-11-10 23:01:00,320 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:No active profile set, falling back to default profiles: default
-""2022-11-10 23:01:00,422 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor:Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-""2022-11-10 23:01:00,423 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor:For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-""2022-11-10 23:01:03,591 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-""2022-11-10 23:01:03,972 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 351 ms. Found 7 JPA repository interfaces.
-""2022-11-10 23:01:05,262 INFO  [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@5a6a61bb' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-""2022-11-10 23:01:05,274 INFO  [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-""2022-11-10 23:01:06,686 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat initialized with port(s): 8081 (http)
-""2022-11-10 23:01:06,725 INFO  [restartedMain] org.apache.catalina.core.StandardService:Starting service [Tomcat]
-""2022-11-10 23:01:06,728 INFO  [restartedMain] org.apache.catalina.core.StandardEngine:Starting Servlet engine: [Apache Tomcat/9.0.54]
-""2022-11-10 23:01:07,256 INFO  [restartedMain] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring embedded WebApplicationContext
-""2022-11-10 23:01:07,259 INFO  [restartedMain] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:Root WebApplicationContext: initialization completed in 6824 ms
-""2022-11-10 23:01:07,701 INFO  [restartedMain] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
-""2022-11-10 23:01:07,845 INFO  [restartedMain] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.4.32.Final
-""2022-11-10 23:01:08,222 INFO  [restartedMain] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-""2022-11-10 23:01:08,575 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
-""2022-11-10 23:01:09,181 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
-""2022-11-10 23:01:09,220 INFO  [restartedMain] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-""2022-11-10 23:01:12,518 INFO  [restartedMain] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-""2022-11-10 23:01:12,551 INFO  [restartedMain] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
-""2022-11-10 23:01:14,278 WARN  [restartedMain] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-""2022-11-10 23:01:17,080 INFO  [restartedMain] springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping:Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-""2022-11-10 23:01:17,338 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-ui.html'] with []
-""2022-11-10 23:01:17,338 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/v2/api-docs'] with []
-""2022-11-10 23:01:17,339 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/configuration/**'] with []
-""2022-11-10 23:01:17,339 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-resources/**'] with []
-""2022-11-10 23:01:17,340 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/webjars/**'] with []
-""2022-11-10 23:01:17,340 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/api-docs/**'] with []
-""2022-11-10 23:01:17,422 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6bfec963, org.springframework.security.web.context.SecurityContextPersistenceFilter@5187d67a, org.springframework.security.web.header.HeaderWriterFilter@2503363c, org.springframework.security.web.authentication.logout.LogoutFilter@24594b40, com.winners.libraryproject.security.jwt.AuthTokenFilter@4ac034ef, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@149552f7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7eb14123, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@30fc1e05, org.springframework.security.web.session.SessionManagementFilter@1e9a1e9c, org.springframework.security.web.access.ExceptionTranslationFilter@5cef3aa5, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6f0c6991]
-""2022-11-10 23:01:17,839 INFO  [restartedMain] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer:LiveReload server is running on port 35729
-""2022-11-10 23:01:18,471 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat started on port(s): 8081 (http) with context path ''
-""2022-11-10 23:01:18,474 INFO  [restartedMain] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Context refreshed
-""2022-11-10 23:01:18,532 INFO  [restartedMain] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Found 1 custom documentation plugin(s)
-""2022-11-10 23:01:18,628 INFO  [restartedMain] springfox.documentation.spring.web.scanners.ApiListingReferenceScanner:Scanning for api listing references
-""2022-11-10 23:01:19,296 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:Started LibraryProjectApplication in 19.898 seconds (JVM running for 21.902)
-""2022-11-10 23:04:07,329 INFO  [http-nio-8081-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring DispatcherServlet 'dispatcherServlet'
-""2022-11-10 23:04:07,332 INFO  [http-nio-8081-exec-1] org.springframework.web.servlet.DispatcherServlet:Initializing Servlet 'dispatcherServlet'
-""2022-11-10 23:04:07,337 INFO  [http-nio-8081-exec-1] org.springframework.web.servlet.DispatcherServlet:Completed initialization in 4 ms
-""2022-11-10 23:04:07,806 ERROR [http-nio-8081-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]:Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is javax.security.auth.message.AuthException: invalid credentials] with root cause
-"javax.security.auth.message.AuthException: invalid credentials
-	at com.winners.libraryproject.service.UserService.login(UserService.java:93)
-	at com.winners.libraryproject.controller.UserController.login(UserController.java:95)
-	at com.winners.libraryproject.controller.UserController$$FastClassBySpringCGLIB$$c95e13f0.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689)
-	at com.winners.libraryproject.controller.UserController$$EnhancerBySpringCGLIB$$d1242ccf.login(<generated>)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:121)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:115)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at com.winners.libraryproject.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-"2022-11-10 23:08:09,394 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
-""2022-11-10 23:08:09,671 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
-""2022-11-10 23:08:09,819 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
-""2022-11-10 23:12:49,397 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:Starting LibraryProjectApplication using Java 11.0.16 on DESKTOP-TFKC0CP with PID 21916 (C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS\target\classes started by basri in C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS)
-""2022-11-10 23:12:49,400 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:No active profile set, falling back to default profiles: default
-""2022-11-10 23:12:49,496 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor:Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-""2022-11-10 23:12:49,496 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor:For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-""2022-11-10 23:12:51,721 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-""2022-11-10 23:12:51,905 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 169 ms. Found 7 JPA repository interfaces.
-""2022-11-10 23:12:52,514 INFO  [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@4471b617' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-""2022-11-10 23:12:52,521 INFO  [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-""2022-11-10 23:12:52,996 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat initialized with port(s): 8081 (http)
-""2022-11-10 23:12:53,010 INFO  [restartedMain] org.apache.catalina.core.StandardService:Starting service [Tomcat]
-""2022-11-10 23:12:53,011 INFO  [restartedMain] org.apache.catalina.core.StandardEngine:Starting Servlet engine: [Apache Tomcat/9.0.54]
-""2022-11-10 23:12:53,173 INFO  [restartedMain] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring embedded WebApplicationContext
-""2022-11-10 23:12:53,173 INFO  [restartedMain] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:Root WebApplicationContext: initialization completed in 3675 ms
-""2022-11-10 23:12:53,586 INFO  [restartedMain] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
-""2022-11-10 23:12:53,707 INFO  [restartedMain] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.4.32.Final
-""2022-11-10 23:12:53,923 INFO  [restartedMain] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-""2022-11-10 23:12:54,077 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
-""2022-11-10 23:12:54,401 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
-""2022-11-10 23:12:54,424 INFO  [restartedMain] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-""2022-11-10 23:12:56,240 INFO  [restartedMain] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-""2022-11-10 23:12:56,253 INFO  [restartedMain] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
-""2022-11-10 23:12:57,184 WARN  [restartedMain] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-""2022-11-10 23:12:58,071 INFO  [restartedMain] springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping:Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-""2022-11-10 23:12:58,231 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-ui.html'] with []
-""2022-11-10 23:12:58,232 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/v2/api-docs'] with []
-""2022-11-10 23:12:58,232 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/configuration/**'] with []
-""2022-11-10 23:12:58,233 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-resources/**'] with []
-""2022-11-10 23:12:58,233 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/webjars/**'] with []
-""2022-11-10 23:12:58,233 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/api-docs/**'] with []
-""2022-11-10 23:12:58,281 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@47c14a63, org.springframework.security.web.context.SecurityContextPersistenceFilter@5d856886, org.springframework.security.web.header.HeaderWriterFilter@1311f1ed, org.springframework.security.web.authentication.logout.LogoutFilter@70e8d44e, com.winners.libraryproject.security.jwt.AuthTokenFilter@4312744, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5c40e805, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@60758f28, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6250435e, org.springframework.security.web.session.SessionManagementFilter@7bc9baa2, org.springframework.security.web.access.ExceptionTranslationFilter@21ed3389, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2bc21ab5]
-""2022-11-10 23:12:58,659 INFO  [restartedMain] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer:LiveReload server is running on port 35729
-""2022-11-10 23:12:59,024 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat started on port(s): 8081 (http) with context path ''
-""2022-11-10 23:12:59,026 INFO  [restartedMain] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Context refreshed
-""2022-11-10 23:12:59,057 INFO  [restartedMain] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Found 1 custom documentation plugin(s)
-""2022-11-10 23:12:59,110 INFO  [restartedMain] springfox.documentation.spring.web.scanners.ApiListingReferenceScanner:Scanning for api listing references
-""2022-11-10 23:12:59,492 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:Started LibraryProjectApplication in 10.966 seconds (JVM running for 13.332)
-""2022-11-10 23:13:13,034 INFO  [http-nio-8081-exec-2] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring DispatcherServlet 'dispatcherServlet'
-""2022-11-10 23:13:13,038 INFO  [http-nio-8081-exec-2] org.springframework.web.servlet.DispatcherServlet:Initializing Servlet 'dispatcherServlet'
-""2022-11-10 23:13:13,044 INFO  [http-nio-8081-exec-2] org.springframework.web.servlet.DispatcherServlet:Completed initialization in 5 ms
-""2022-11-10 23:13:13,613 ERROR [http-nio-8081-exec-2] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]:Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is javax.security.auth.message.AuthException: invalid credentials] with root cause
-"javax.security.auth.message.AuthException: invalid credentials
-	at com.winners.libraryproject.service.UserService.login(UserService.java:93)
-	at com.winners.libraryproject.controller.UserController.login(UserController.java:90)
-	at com.winners.libraryproject.controller.UserController$$FastClassBySpringCGLIB$$c95e13f0.invoke(<generated>)
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689)
-	at com.winners.libraryproject.controller.UserController$$EnhancerBySpringCGLIB$$4bd450d6.login(<generated>)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:121)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:115)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at com.winners.libraryproject.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1722)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-"2022-11-10 23:15:41,166 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
-""2022-11-10 23:15:41,180 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
-""2022-11-10 23:15:41,200 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
-""2022-11-10 23:16:23,174 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:Starting LibraryProjectApplication using Java 11.0.16 on DESKTOP-TFKC0CP with PID 22952 (C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS\target\classes started by basri in C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS)
-""2022-11-10 23:16:23,177 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:No active profile set, falling back to default profiles: default
-""2022-11-10 23:16:23,341 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor:Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-""2022-11-10 23:16:23,342 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor:For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-""2022-11-10 23:16:26,100 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-""2022-11-10 23:16:26,353 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 235 ms. Found 7 JPA repository interfaces.
-""2022-11-10 23:16:27,129 INFO  [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@3803c3ba' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-""2022-11-10 23:16:27,143 INFO  [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-""2022-11-10 23:16:27,851 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat initialized with port(s): 8081 (http)
-""2022-11-10 23:16:27,865 INFO  [restartedMain] org.apache.catalina.core.StandardService:Starting service [Tomcat]
-""2022-11-10 23:16:27,866 INFO  [restartedMain] org.apache.catalina.core.StandardEngine:Starting Servlet engine: [Apache Tomcat/9.0.54]
-""2022-11-10 23:16:28,047 INFO  [restartedMain] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring embedded WebApplicationContext
-""2022-11-10 23:16:28,048 INFO  [restartedMain] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:Root WebApplicationContext: initialization completed in 4705 ms
-""2022-11-10 23:16:28,377 INFO  [restartedMain] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
-""2022-11-10 23:16:28,524 INFO  [restartedMain] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.4.32.Final
-""2022-11-10 23:16:28,860 INFO  [restartedMain] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-""2022-11-10 23:16:29,765 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
-""2022-11-10 23:16:30,523 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
-""2022-11-10 23:16:30,549 INFO  [restartedMain] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-""2022-11-10 23:16:32,886 INFO  [restartedMain] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-""2022-11-10 23:16:32,909 INFO  [restartedMain] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
-""2022-11-10 23:16:33,872 WARN  [restartedMain] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-""2022-11-10 23:16:34,809 INFO  [restartedMain] springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping:Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-""2022-11-10 23:16:35,293 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-ui.html'] with []
-""2022-11-10 23:16:35,299 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/v2/api-docs'] with []
-""2022-11-10 23:16:35,313 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/configuration/**'] with []
-""2022-11-10 23:16:35,319 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-resources/**'] with []
-""2022-11-10 23:16:35,319 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/webjars/**'] with []
-""2022-11-10 23:16:35,320 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/api-docs/**'] with []
-""2022-11-10 23:16:35,433 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1928c9ad, org.springframework.security.web.context.SecurityContextPersistenceFilter@50d6242b, org.springframework.security.web.header.HeaderWriterFilter@594139ad, org.springframework.security.web.authentication.logout.LogoutFilter@6b0d40a7, com.winners.libraryproject.security.jwt.AuthTokenFilter@38af6e52, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@31768c67, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@49862961, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7981f0fe, org.springframework.security.web.session.SessionManagementFilter@2f862766, org.springframework.security.web.access.ExceptionTranslationFilter@62ac9195, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@59e05712]
-""2022-11-10 23:16:35,928 INFO  [restartedMain] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer:LiveReload server is running on port 35729
-""2022-11-10 23:16:36,447 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat started on port(s): 8081 (http) with context path ''
-""2022-11-10 23:16:36,448 INFO  [restartedMain] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Context refreshed
-""2022-11-10 23:16:36,475 INFO  [restartedMain] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Found 1 custom documentation plugin(s)
-""2022-11-10 23:16:36,536 INFO  [restartedMain] springfox.documentation.spring.web.scanners.ApiListingReferenceScanner:Scanning for api listing references
-""2022-11-10 23:16:37,007 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:Started LibraryProjectApplication in 14.902 seconds (JVM running for 18.042)
-""2022-11-10 23:16:57,913 INFO  [http-nio-8081-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring DispatcherServlet 'dispatcherServlet'
-""2022-11-10 23:16:57,914 INFO  [http-nio-8081-exec-1] org.springframework.web.servlet.DispatcherServlet:Initializing Servlet 'dispatcherServlet'
-""2022-11-10 23:16:57,921 INFO  [http-nio-8081-exec-1] org.springframework.web.servlet.DispatcherServlet:Completed initialization in 6 ms
-""2022-11-10 23:17:51,148 WARN  [http-nio-8081-exec-4] org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver:Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "all"]
-""2022-11-10 23:18:51,613 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
-""2022-11-10 23:18:51,630 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
-""2022-11-10 23:18:51,657 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
-""2022-11-10 23:19:08,548 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:Starting LibraryProjectApplication using Java 11.0.16 on DESKTOP-TFKC0CP with PID 13724 (C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS\target\classes started by basri in C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS)
-""2022-11-10 23:19:08,551 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:No active profile set, falling back to default profiles: default
-""2022-11-10 23:19:08,666 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor:Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-""2022-11-10 23:19:08,667 INFO  [restartedMain] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor:For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-""2022-11-10 23:19:10,508 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-""2022-11-10 23:19:10,644 INFO  [restartedMain] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 124 ms. Found 7 JPA repository interfaces.
-""2022-11-10 23:19:11,214 INFO  [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@4634538f' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-""2022-11-10 23:19:11,219 INFO  [restartedMain] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-""2022-11-10 23:19:11,618 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat initialized with port(s): 8081 (http)
-""2022-11-10 23:19:11,630 INFO  [restartedMain] org.apache.catalina.core.StandardService:Starting service [Tomcat]
-""2022-11-10 23:19:11,630 INFO  [restartedMain] org.apache.catalina.core.StandardEngine:Starting Servlet engine: [Apache Tomcat/9.0.54]
-""2022-11-10 23:19:11,783 INFO  [restartedMain] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring embedded WebApplicationContext
-""2022-11-10 23:19:11,784 INFO  [restartedMain] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:Root WebApplicationContext: initialization completed in 3116 ms
-""2022-11-10 23:19:12,074 INFO  [restartedMain] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
-""2022-11-10 23:19:12,163 INFO  [restartedMain] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.4.32.Final
-""2022-11-10 23:19:12,364 INFO  [restartedMain] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-""2022-11-10 23:19:12,503 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
-""2022-11-10 23:19:12,752 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
-""2022-11-10 23:19:12,774 INFO  [restartedMain] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-""2022-11-10 23:19:14,566 INFO  [restartedMain] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-""2022-11-10 23:19:14,577 INFO  [restartedMain] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
-""2022-11-10 23:19:15,355 WARN  [restartedMain] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-""2022-11-10 23:19:16,084 INFO  [restartedMain] springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping:Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-""2022-11-10 23:19:16,225 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-ui.html'] with []
-""2022-11-10 23:19:16,225 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/v2/api-docs'] with []
-""2022-11-10 23:19:16,226 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/configuration/**'] with []
-""2022-11-10 23:19:16,226 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-resources/**'] with []
-""2022-11-10 23:19:16,226 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/webjars/**'] with []
-""2022-11-10 23:19:16,227 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/api-docs/**'] with []
-""2022-11-10 23:19:16,270 INFO  [restartedMain] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@20787ec1, org.springframework.security.web.context.SecurityContextPersistenceFilter@5c6471b5, org.springframework.security.web.header.HeaderWriterFilter@669d70e, org.springframework.security.web.authentication.logout.LogoutFilter@3a0a5675, com.winners.libraryproject.security.jwt.AuthTokenFilter@7effe97d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@53f0a74a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@385d81e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5721c3a7, org.springframework.security.web.session.SessionManagementFilter@19b38ca0, org.springframework.security.web.access.ExceptionTranslationFilter@3192835f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1d734906]
-""2022-11-10 23:19:16,560 INFO  [restartedMain] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer:LiveReload server is running on port 35729
-""2022-11-10 23:19:16,864 INFO  [restartedMain] org.springframework.boot.web.embedded.tomcat.TomcatWebServer:Tomcat started on port(s): 8081 (http) with context path ''
-""2022-11-10 23:19:16,866 INFO  [restartedMain] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Context refreshed
-""2022-11-10 23:19:16,892 INFO  [restartedMain] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Found 1 custom documentation plugin(s)
-""2022-11-10 23:19:16,945 INFO  [restartedMain] springfox.documentation.spring.web.scanners.ApiListingReferenceScanner:Scanning for api listing references
-""2022-11-10 23:19:17,297 INFO  [restartedMain] com.winners.libraryproject.LibraryProjectApplication:Started LibraryProjectApplication in 9.587 seconds (JVM running for 11.662)
-""2022-11-10 23:19:42,670 INFO  [http-nio-8081-exec-1] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:Initializing Spring DispatcherServlet 'dispatcherServlet'
-""2022-11-10 23:19:42,676 INFO  [http-nio-8081-exec-1] org.springframework.web.servlet.DispatcherServlet:Initializing Servlet 'dispatcherServlet'
-""2022-11-10 23:19:42,680 INFO  [http-nio-8081-exec-1] org.springframework.web.servlet.DispatcherServlet:Completed initialization in 3 ms
-""2022-11-10 23:20:07,882 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
-""2022-11-10 23:20:07,905 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
-""2022-11-10 23:20:07,924 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
+"2022-11-17 00:15:56,126 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Starting UserRepositoryTest using Java 11.0.16 on DESKTOP-TFKC0CP with PID 1516 (started by basri in C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS)
+""2022-11-17 00:15:56,154 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:No active profile set, falling back to default profiles: default
+""2022-11-17 00:16:00,563 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2022-11-17 00:16:01,419 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 833 ms. Found 7 JPA repository interfaces.
+""2022-11-17 00:16:03,463 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@153cb763' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 00:16:03,510 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 00:16:04,111 INFO  [main] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
+""2022-11-17 00:16:04,289 INFO  [main] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.4.32.Final
+""2022-11-17 00:16:04,779 INFO  [main] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2022-11-17 00:16:05,599 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
+""2022-11-17 00:16:06,378 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
+""2022-11-17 00:16:06,440 INFO  [main] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2022-11-17 00:16:09,094 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2022-11-17 00:16:09,112 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 00:16:12,286 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2022-11-17 00:16:15,368 INFO  [main] springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping:Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2022-11-17 00:16:15,773 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-ui.html'] with []
+""2022-11-17 00:16:15,774 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/v2/api-docs'] with []
+""2022-11-17 00:16:15,775 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/configuration/**'] with []
+""2022-11-17 00:16:15,778 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-resources/**'] with []
+""2022-11-17 00:16:15,779 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/webjars/**'] with []
+""2022-11-17 00:16:15,781 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/api-docs/**'] with []
+""2022-11-17 00:16:15,977 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@32db94fb, org.springframework.security.web.context.SecurityContextPersistenceFilter@11ec699, org.springframework.security.web.header.HeaderWriterFilter@42fc744, org.springframework.security.web.authentication.logout.LogoutFilter@5da799, com.winners.libraryproject.security.jwt.AuthTokenFilter@462deb2b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1b1d1558, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5c960f64, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6b61a4b0, org.springframework.security.web.session.SessionManagementFilter@6eeb15f9, org.springframework.security.web.access.ExceptionTranslationFilter@6bf2ecbb, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1609ed55]
+""2022-11-17 00:16:17,884 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Context refreshed
+""2022-11-17 00:16:17,976 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Found 1 custom documentation plugin(s)
+""2022-11-17 00:16:18,044 INFO  [main] springfox.documentation.spring.web.scanners.ApiListingReferenceScanner:Scanning for api listing references
+""2022-11-17 00:16:18,711 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Started UserRepositoryTest in 23.462 seconds (JVM running for 26.401)
+""2022-11-17 00:16:20,528 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 00:16:20,556 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
+""2022-11-17 00:16:20,614 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
+""2022-11-17 00:17:52,348 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Starting UserRepositoryTest using Java 11.0.16 on DESKTOP-TFKC0CP with PID 10140 (started by basri in C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS)
+""2022-11-17 00:17:52,354 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:No active profile set, falling back to default profiles: default
+""2022-11-17 00:17:56,009 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2022-11-17 00:17:56,279 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 247 ms. Found 7 JPA repository interfaces.
+""2022-11-17 00:17:57,972 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@35787726' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 00:17:58,042 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 00:17:59,030 INFO  [main] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
+""2022-11-17 00:17:59,238 INFO  [main] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.4.32.Final
+""2022-11-17 00:17:59,979 INFO  [main] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2022-11-17 00:18:00,908 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
+""2022-11-17 00:18:01,697 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
+""2022-11-17 00:18:01,756 INFO  [main] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2022-11-17 00:18:04,809 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2022-11-17 00:18:04,835 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 00:18:07,310 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2022-11-17 00:18:08,763 INFO  [main] springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping:Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2022-11-17 00:18:09,079 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-ui.html'] with []
+""2022-11-17 00:18:09,082 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/v2/api-docs'] with []
+""2022-11-17 00:18:09,083 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/configuration/**'] with []
+""2022-11-17 00:18:09,086 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-resources/**'] with []
+""2022-11-17 00:18:09,104 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/webjars/**'] with []
+""2022-11-17 00:18:09,108 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/api-docs/**'] with []
+""2022-11-17 00:18:09,307 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@519e14f6, org.springframework.security.web.context.SecurityContextPersistenceFilter@6e2e11ee, org.springframework.security.web.header.HeaderWriterFilter@495a9305, org.springframework.security.web.authentication.logout.LogoutFilter@6eeb15f9, com.winners.libraryproject.security.jwt.AuthTokenFilter@4d86f330, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@c2ddfeb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@496e2bdd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@10ab976b, org.springframework.security.web.session.SessionManagementFilter@369d624d, org.springframework.security.web.access.ExceptionTranslationFilter@7d43c89f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@36def543]
+""2022-11-17 00:18:10,708 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Context refreshed
+""2022-11-17 00:18:10,759 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Found 1 custom documentation plugin(s)
+""2022-11-17 00:18:10,821 INFO  [main] springfox.documentation.spring.web.scanners.ApiListingReferenceScanner:Scanning for api listing references
+""2022-11-17 00:18:11,320 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Started UserRepositoryTest in 20.34 seconds (JVM running for 23.318)
+""2022-11-17 00:18:11,733 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 00:18:11,743 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
+""2022-11-17 00:18:11,762 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
+""2022-11-17 00:20:32,530 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Starting UserRepositoryTest using Java 11.0.16 on DESKTOP-TFKC0CP with PID 23720 (started by basri in C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS)
+""2022-11-17 00:20:32,541 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:No active profile set, falling back to default profiles: default
+""2022-11-17 00:20:36,493 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2022-11-17 00:20:36,745 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 233 ms. Found 7 JPA repository interfaces.
+""2022-11-17 00:20:38,509 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@6e8fdd19' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 00:20:38,550 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 00:20:39,130 INFO  [main] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
+""2022-11-17 00:20:39,339 INFO  [main] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.4.32.Final
+""2022-11-17 00:20:39,784 INFO  [main] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2022-11-17 00:20:40,596 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
+""2022-11-17 00:20:41,083 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
+""2022-11-17 00:20:41,126 INFO  [main] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2022-11-17 00:20:43,647 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2022-11-17 00:20:43,663 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 00:20:45,717 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2022-11-17 00:20:47,784 INFO  [main] springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping:Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2022-11-17 00:20:48,149 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-ui.html'] with []
+""2022-11-17 00:20:48,150 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/v2/api-docs'] with []
+""2022-11-17 00:20:48,151 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/configuration/**'] with []
+""2022-11-17 00:20:48,152 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-resources/**'] with []
+""2022-11-17 00:20:48,153 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/webjars/**'] with []
+""2022-11-17 00:20:48,153 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/api-docs/**'] with []
+""2022-11-17 00:20:48,477 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@64ba5a71, org.springframework.security.web.context.SecurityContextPersistenceFilter@38241615, org.springframework.security.web.header.HeaderWriterFilter@12921ee1, org.springframework.security.web.authentication.logout.LogoutFilter@352a8183, com.winners.libraryproject.security.jwt.AuthTokenFilter@22c14d10, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3db145f7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7ae75ba6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@72b689f6, org.springframework.security.web.session.SessionManagementFilter@6bf2ecbb, org.springframework.security.web.access.ExceptionTranslationFilter@a6924ad, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@31f4fdc5]
+""2022-11-17 00:20:50,174 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Context refreshed
+""2022-11-17 00:20:50,238 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Found 1 custom documentation plugin(s)
+""2022-11-17 00:20:50,393 INFO  [main] springfox.documentation.spring.web.scanners.ApiListingReferenceScanner:Scanning for api listing references
+""2022-11-17 00:20:51,022 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Started UserRepositoryTest in 19.504 seconds (JVM running for 22.197)
+""2022-11-17 00:20:51,485 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 00:20:51,493 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
+""2022-11-17 00:20:51,511 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
+""2022-11-17 00:23:48,116 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Starting UserRepositoryTest using Java 11.0.16 on DESKTOP-TFKC0CP with PID 20464 (started by basri in C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS)
+""2022-11-17 00:23:48,124 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:No active profile set, falling back to default profiles: default
+""2022-11-17 00:23:51,744 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2022-11-17 00:23:52,197 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 421 ms. Found 7 JPA repository interfaces.
+""2022-11-17 00:23:53,473 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@6e8fdd19' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 00:23:53,511 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 00:23:54,223 INFO  [main] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
+""2022-11-17 00:23:54,412 INFO  [main] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.4.32.Final
+""2022-11-17 00:23:54,883 INFO  [main] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2022-11-17 00:23:55,713 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
+""2022-11-17 00:23:56,273 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
+""2022-11-17 00:23:56,323 INFO  [main] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2022-11-17 00:23:58,931 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2022-11-17 00:23:58,958 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 00:24:01,084 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2022-11-17 00:24:02,977 INFO  [main] springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping:Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2022-11-17 00:24:03,308 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-ui.html'] with []
+""2022-11-17 00:24:03,309 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/v2/api-docs'] with []
+""2022-11-17 00:24:03,310 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/configuration/**'] with []
+""2022-11-17 00:24:03,310 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-resources/**'] with []
+""2022-11-17 00:24:03,311 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/webjars/**'] with []
+""2022-11-17 00:24:03,311 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/api-docs/**'] with []
+""2022-11-17 00:24:03,554 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@66c88fce, org.springframework.security.web.context.SecurityContextPersistenceFilter@76379796, org.springframework.security.web.header.HeaderWriterFilter@6e818345, org.springframework.security.web.authentication.logout.LogoutFilter@42eaf47f, com.winners.libraryproject.security.jwt.AuthTokenFilter@58fbecde, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@615bd28b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1300112e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6ccfce5a, org.springframework.security.web.session.SessionManagementFilter@29390110, org.springframework.security.web.access.ExceptionTranslationFilter@689fe2a3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6b578779]
+""2022-11-17 00:24:05,818 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Context refreshed
+""2022-11-17 00:24:05,892 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Found 1 custom documentation plugin(s)
+""2022-11-17 00:24:05,979 INFO  [main] springfox.documentation.spring.web.scanners.ApiListingReferenceScanner:Scanning for api listing references
+""2022-11-17 00:24:06,715 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Started UserRepositoryTest in 19.489 seconds (JVM running for 22.577)
+""2022-11-17 00:24:07,346 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 00:24:07,352 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
+""2022-11-17 00:24:07,381 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
+""2022-11-17 00:27:25,287 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Starting UserRepositoryTest using Java 11.0.16 on DESKTOP-TFKC0CP with PID 22200 (started by basri in C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS)
+""2022-11-17 00:27:25,296 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:No active profile set, falling back to default profiles: default
+""2022-11-17 00:27:28,737 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2022-11-17 00:27:29,003 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 241 ms. Found 7 JPA repository interfaces.
+""2022-11-17 00:27:30,595 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@22ead351' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 00:27:30,629 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 00:27:31,822 INFO  [main] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
+""2022-11-17 00:27:32,159 INFO  [main] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.4.32.Final
+""2022-11-17 00:27:32,665 INFO  [main] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2022-11-17 00:27:33,418 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
+""2022-11-17 00:27:33,912 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
+""2022-11-17 00:27:33,968 INFO  [main] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2022-11-17 00:27:36,569 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2022-11-17 00:27:36,588 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 00:27:38,270 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2022-11-17 00:27:39,637 INFO  [main] springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping:Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2022-11-17 00:27:39,900 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-ui.html'] with []
+""2022-11-17 00:27:39,901 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/v2/api-docs'] with []
+""2022-11-17 00:27:39,902 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/configuration/**'] with []
+""2022-11-17 00:27:39,902 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-resources/**'] with []
+""2022-11-17 00:27:39,903 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/webjars/**'] with []
+""2022-11-17 00:27:39,903 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/api-docs/**'] with []
+""2022-11-17 00:27:40,056 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5c8859b4, org.springframework.security.web.context.SecurityContextPersistenceFilter@47a68e3f, org.springframework.security.web.header.HeaderWriterFilter@4eee730c, org.springframework.security.web.authentication.logout.LogoutFilter@66c88fce, com.winners.libraryproject.security.jwt.AuthTokenFilter@4d20cbb5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6d18401b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@141874c8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@56897de0, org.springframework.security.web.session.SessionManagementFilter@fefd4a2, org.springframework.security.web.access.ExceptionTranslationFilter@34538ffe, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4fe8ac61]
+""2022-11-17 00:27:41,524 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Context refreshed
+""2022-11-17 00:27:41,576 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Found 1 custom documentation plugin(s)
+""2022-11-17 00:27:41,637 INFO  [main] springfox.documentation.spring.web.scanners.ApiListingReferenceScanner:Scanning for api listing references
+""2022-11-17 00:27:42,306 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Started UserRepositoryTest in 17.85 seconds (JVM running for 21.179)
+""2022-11-17 00:27:42,830 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 00:27:42,836 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
+""2022-11-17 00:27:42,853 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
+""2022-11-17 00:42:37,348 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Starting UserRepositoryTest using Java 11.0.16 on DESKTOP-TFKC0CP with PID 11092 (started by basri in C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS)
+""2022-11-17 00:42:37,355 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:No active profile set, falling back to default profiles: default
+""2022-11-17 00:42:40,539 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2022-11-17 00:42:40,776 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 215 ms. Found 7 JPA repository interfaces.
+""2022-11-17 00:42:42,007 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@15e1f8fe' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 00:42:42,057 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 00:42:42,813 INFO  [main] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
+""2022-11-17 00:42:43,005 INFO  [main] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.4.32.Final
+""2022-11-17 00:42:43,505 INFO  [main] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2022-11-17 00:42:44,631 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
+""2022-11-17 00:42:45,187 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
+""2022-11-17 00:42:45,271 INFO  [main] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2022-11-17 00:42:47,890 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2022-11-17 00:42:47,906 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 00:42:49,855 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2022-11-17 00:42:51,589 INFO  [main] springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping:Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2022-11-17 00:42:52,015 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-ui.html'] with []
+""2022-11-17 00:42:52,028 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/v2/api-docs'] with []
+""2022-11-17 00:42:52,031 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/configuration/**'] with []
+""2022-11-17 00:42:52,032 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-resources/**'] with []
+""2022-11-17 00:42:52,036 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/webjars/**'] with []
+""2022-11-17 00:42:52,037 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/api-docs/**'] with []
+""2022-11-17 00:42:52,339 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2f08e6d3, org.springframework.security.web.context.SecurityContextPersistenceFilter@7f0b2bf1, org.springframework.security.web.header.HeaderWriterFilter@6d2693f, org.springframework.security.web.authentication.logout.LogoutFilter@21dbd651, com.winners.libraryproject.security.jwt.AuthTokenFilter@1f8ac459, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@22f756c5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7859fc7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@67c1fc9b, org.springframework.security.web.session.SessionManagementFilter@38aed8ad, org.springframework.security.web.access.ExceptionTranslationFilter@3aec2f59, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@69b436a7]
+""2022-11-17 00:42:54,017 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Context refreshed
+""2022-11-17 00:42:54,085 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Found 1 custom documentation plugin(s)
+""2022-11-17 00:42:54,177 INFO  [main] springfox.documentation.spring.web.scanners.ApiListingReferenceScanner:Scanning for api listing references
+""2022-11-17 00:42:54,839 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Started UserRepositoryTest in 18.458 seconds (JVM running for 21.908)
+""2022-11-17 00:42:55,620 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 00:42:55,626 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
+""2022-11-17 00:42:55,646 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
+""2022-11-17 00:43:41,024 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Starting UserRepositoryTest using Java 11.0.16 on DESKTOP-TFKC0CP with PID 12444 (started by basri in C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS)
+""2022-11-17 00:43:41,038 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:No active profile set, falling back to default profiles: default
+""2022-11-17 00:43:44,104 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2022-11-17 00:43:44,425 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 298 ms. Found 7 JPA repository interfaces.
+""2022-11-17 00:43:45,553 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@35787726' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 00:43:45,591 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 00:43:46,158 INFO  [main] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
+""2022-11-17 00:43:46,313 INFO  [main] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.4.32.Final
+""2022-11-17 00:43:46,757 INFO  [main] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2022-11-17 00:43:47,671 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
+""2022-11-17 00:43:48,173 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
+""2022-11-17 00:43:48,229 INFO  [main] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2022-11-17 00:43:50,775 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2022-11-17 00:43:50,791 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 00:43:52,830 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2022-11-17 00:43:54,399 INFO  [main] springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping:Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2022-11-17 00:43:54,699 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-ui.html'] with []
+""2022-11-17 00:43:54,700 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/v2/api-docs'] with []
+""2022-11-17 00:43:54,701 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/configuration/**'] with []
+""2022-11-17 00:43:54,702 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-resources/**'] with []
+""2022-11-17 00:43:54,702 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/webjars/**'] with []
+""2022-11-17 00:43:54,702 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/api-docs/**'] with []
+""2022-11-17 00:43:54,890 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@64ba5a71, org.springframework.security.web.context.SecurityContextPersistenceFilter@38241615, org.springframework.security.web.header.HeaderWriterFilter@12921ee1, org.springframework.security.web.authentication.logout.LogoutFilter@352a8183, com.winners.libraryproject.security.jwt.AuthTokenFilter@22c14d10, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3db145f7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7ae75ba6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@72b689f6, org.springframework.security.web.session.SessionManagementFilter@6bf2ecbb, org.springframework.security.web.access.ExceptionTranslationFilter@a6924ad, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@31f4fdc5]
+""2022-11-17 00:43:56,385 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Context refreshed
+""2022-11-17 00:43:56,449 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Found 1 custom documentation plugin(s)
+""2022-11-17 00:43:56,529 INFO  [main] springfox.documentation.spring.web.scanners.ApiListingReferenceScanner:Scanning for api listing references
+""2022-11-17 00:43:57,317 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Started UserRepositoryTest in 17.1 seconds (JVM running for 20.443)
+""2022-11-17 00:43:57,861 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 00:43:57,868 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
+""2022-11-17 00:43:57,888 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
+""2022-11-17 00:45:50,759 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Starting UserRepositoryTest using Java 11.0.16 on DESKTOP-TFKC0CP with PID 7992 (started by basri in C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS)
+""2022-11-17 00:45:50,771 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:No active profile set, falling back to default profiles: default
+""2022-11-17 00:45:54,367 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2022-11-17 00:45:54,636 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 249 ms. Found 7 JPA repository interfaces.
+""2022-11-17 00:45:55,907 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@2199e845' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 00:45:55,950 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 00:45:56,598 INFO  [main] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
+""2022-11-17 00:45:56,814 INFO  [main] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.4.32.Final
+""2022-11-17 00:45:57,360 INFO  [main] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2022-11-17 00:45:58,282 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
+""2022-11-17 00:45:58,974 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
+""2022-11-17 00:45:59,040 INFO  [main] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2022-11-17 00:46:01,662 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2022-11-17 00:46:01,686 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 00:46:04,134 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2022-11-17 00:46:05,611 INFO  [main] springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping:Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2022-11-17 00:46:05,937 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-ui.html'] with []
+""2022-11-17 00:46:05,939 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/v2/api-docs'] with []
+""2022-11-17 00:46:05,939 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/configuration/**'] with []
+""2022-11-17 00:46:05,940 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-resources/**'] with []
+""2022-11-17 00:46:05,941 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/webjars/**'] with []
+""2022-11-17 00:46:05,941 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/api-docs/**'] with []
+""2022-11-17 00:46:06,130 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6d18401b, org.springframework.security.web.context.SecurityContextPersistenceFilter@2e41b65a, org.springframework.security.web.header.HeaderWriterFilter@36f1bd7e, org.springframework.security.web.authentication.logout.LogoutFilter@5482b32a, com.winners.libraryproject.security.jwt.AuthTokenFilter@159a32a4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@495a9305, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5257123d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1ebcfcf1, org.springframework.security.web.session.SessionManagementFilter@1f8ac459, org.springframework.security.web.access.ExceptionTranslationFilter@506d7fed, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@47a68e3f]
+""2022-11-17 00:46:07,931 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Context refreshed
+""2022-11-17 00:46:07,997 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Found 1 custom documentation plugin(s)
+""2022-11-17 00:46:08,074 INFO  [main] springfox.documentation.spring.web.scanners.ApiListingReferenceScanner:Scanning for api listing references
+""2022-11-17 00:46:08,796 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Started UserRepositoryTest in 18.85 seconds (JVM running for 22.059)
+""2022-11-17 00:46:09,397 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 00:46:09,405 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
+""2022-11-17 00:46:09,448 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
+""2022-11-17 00:46:47,252 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Starting UserRepositoryTest using Java 11.0.16 on DESKTOP-TFKC0CP with PID 1820 (started by basri in C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS)
+""2022-11-17 00:46:47,256 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:No active profile set, falling back to default profiles: default
+""2022-11-17 00:46:50,204 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2022-11-17 00:46:50,423 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 200 ms. Found 7 JPA repository interfaces.
+""2022-11-17 00:46:51,533 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@3375ebd3' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 00:46:51,570 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 00:46:52,227 INFO  [main] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
+""2022-11-17 00:46:52,420 INFO  [main] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.4.32.Final
+""2022-11-17 00:46:52,847 INFO  [main] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2022-11-17 00:46:53,597 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
+""2022-11-17 00:46:54,150 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
+""2022-11-17 00:46:54,192 INFO  [main] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2022-11-17 00:46:56,902 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2022-11-17 00:46:56,927 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 00:46:59,477 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2022-11-17 00:47:01,024 INFO  [main] springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping:Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2022-11-17 00:47:01,289 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-ui.html'] with []
+""2022-11-17 00:47:01,290 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/v2/api-docs'] with []
+""2022-11-17 00:47:01,292 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/configuration/**'] with []
+""2022-11-17 00:47:01,292 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-resources/**'] with []
+""2022-11-17 00:47:01,293 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/webjars/**'] with []
+""2022-11-17 00:47:01,294 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/api-docs/**'] with []
+""2022-11-17 00:47:01,479 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@31f4fdc5, org.springframework.security.web.context.SecurityContextPersistenceFilter@1300112e, org.springframework.security.web.header.HeaderWriterFilter@189f9f9f, org.springframework.security.web.authentication.logout.LogoutFilter@64dcfd09, com.winners.libraryproject.security.jwt.AuthTokenFilter@e594c46, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@38241615, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7915111a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@64e680c5, org.springframework.security.web.session.SessionManagementFilter@2b9a7211, org.springframework.security.web.access.ExceptionTranslationFilter@1235732d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@68a7bc12]
+""2022-11-17 00:47:03,232 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Context refreshed
+""2022-11-17 00:47:03,292 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Found 1 custom documentation plugin(s)
+""2022-11-17 00:47:03,366 INFO  [main] springfox.documentation.spring.web.scanners.ApiListingReferenceScanner:Scanning for api listing references
+""2022-11-17 00:47:04,107 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Started UserRepositoryTest in 17.739 seconds (JVM running for 20.327)
+""2022-11-17 00:47:04,799 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 00:47:04,812 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
+""2022-11-17 00:47:04,836 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
+""2022-11-17 00:55:59,035 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Starting UserRepositoryTest using Java 11.0.16 on DESKTOP-TFKC0CP with PID 11540 (started by basri in C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS)
+""2022-11-17 00:55:59,040 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:No active profile set, falling back to default profiles: default
+""2022-11-17 00:56:02,456 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2022-11-17 00:56:02,725 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 247 ms. Found 7 JPA repository interfaces.
+""2022-11-17 00:56:04,453 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@2fe2965c' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 00:56:04,501 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 00:56:05,218 INFO  [main] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
+""2022-11-17 00:56:05,397 INFO  [main] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.4.32.Final
+""2022-11-17 00:56:05,860 INFO  [main] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2022-11-17 00:56:06,827 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
+""2022-11-17 00:56:07,597 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
+""2022-11-17 00:56:07,664 INFO  [main] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2022-11-17 00:56:10,502 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2022-11-17 00:56:10,524 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 00:56:12,983 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2022-11-17 00:56:14,863 INFO  [main] springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping:Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2022-11-17 00:56:15,208 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-ui.html'] with []
+""2022-11-17 00:56:15,209 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/v2/api-docs'] with []
+""2022-11-17 00:56:15,210 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/configuration/**'] with []
+""2022-11-17 00:56:15,210 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-resources/**'] with []
+""2022-11-17 00:56:15,211 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/webjars/**'] with []
+""2022-11-17 00:56:15,212 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/api-docs/**'] with []
+""2022-11-17 00:56:15,425 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@33ef393a, org.springframework.security.web.context.SecurityContextPersistenceFilter@67201eeb, org.springframework.security.web.header.HeaderWriterFilter@655d5285, org.springframework.security.web.authentication.logout.LogoutFilter@74ec4df3, com.winners.libraryproject.security.jwt.AuthTokenFilter@68ee7b3b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2eea0775, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@689fe2a3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6d18401b, org.springframework.security.web.session.SessionManagementFilter@5fb58f15, org.springframework.security.web.access.ExceptionTranslationFilter@3c3357c7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@361d169a]
+""2022-11-17 00:56:17,559 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Context refreshed
+""2022-11-17 00:56:17,642 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Found 1 custom documentation plugin(s)
+""2022-11-17 00:56:17,742 INFO  [main] springfox.documentation.spring.web.scanners.ApiListingReferenceScanner:Scanning for api listing references
+""2022-11-17 00:56:18,434 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Started UserRepositoryTest in 20.27 seconds (JVM running for 23.333)
+""2022-11-17 00:56:19,377 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 00:56:19,383 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
+""2022-11-17 00:56:19,403 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
+""2022-11-17 00:58:15,625 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Starting UserRepositoryTest using Java 11.0.16 on DESKTOP-TFKC0CP with PID 8100 (started by basri in C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS)
+""2022-11-17 00:58:15,632 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:No active profile set, falling back to default profiles: default
+""2022-11-17 00:58:19,406 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2022-11-17 00:58:19,937 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 486 ms. Found 7 JPA repository interfaces.
+""2022-11-17 00:58:22,268 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@2199e845' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 00:58:22,366 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 00:58:23,237 INFO  [main] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
+""2022-11-17 00:58:23,571 INFO  [main] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.4.32.Final
+""2022-11-17 00:58:24,071 INFO  [main] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2022-11-17 00:58:24,914 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
+""2022-11-17 00:58:25,419 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
+""2022-11-17 00:58:25,463 INFO  [main] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2022-11-17 00:58:27,990 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2022-11-17 00:58:28,016 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 00:58:31,002 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2022-11-17 00:58:33,738 INFO  [main] springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping:Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2022-11-17 00:58:34,408 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-ui.html'] with []
+""2022-11-17 00:58:34,412 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/v2/api-docs'] with []
+""2022-11-17 00:58:34,413 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/configuration/**'] with []
+""2022-11-17 00:58:34,413 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-resources/**'] with []
+""2022-11-17 00:58:34,414 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/webjars/**'] with []
+""2022-11-17 00:58:34,415 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/api-docs/**'] with []
+""2022-11-17 00:58:34,757 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@147203c2, org.springframework.security.web.context.SecurityContextPersistenceFilter@77350382, org.springframework.security.web.header.HeaderWriterFilter@3d9c69f8, org.springframework.security.web.authentication.logout.LogoutFilter@312e8eaf, com.winners.libraryproject.security.jwt.AuthTokenFilter@2719139f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2b9a7211, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5955568, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@11df0bc7, org.springframework.security.web.session.SessionManagementFilter@4b89515b, org.springframework.security.web.access.ExceptionTranslationFilter@5257123d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4e797a39]
+""2022-11-17 00:58:37,174 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Context refreshed
+""2022-11-17 00:58:37,266 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Found 1 custom documentation plugin(s)
+""2022-11-17 00:58:37,377 INFO  [main] springfox.documentation.spring.web.scanners.ApiListingReferenceScanner:Scanning for api listing references
+""2022-11-17 00:58:38,331 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Started UserRepositoryTest in 23.525 seconds (JVM running for 26.312)
+""2022-11-17 00:58:39,147 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 00:58:39,154 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
+""2022-11-17 00:58:39,180 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
+""2022-11-17 01:00:09,386 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Starting UserRepositoryTest using Java 11.0.16 on DESKTOP-TFKC0CP with PID 2904 (started by basri in C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS)
+""2022-11-17 01:00:09,400 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:No active profile set, falling back to default profiles: default
+""2022-11-17 01:00:13,103 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2022-11-17 01:00:13,523 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 367 ms. Found 7 JPA repository interfaces.
+""2022-11-17 01:00:15,844 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@35787726' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 01:00:15,904 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 01:00:16,673 INFO  [main] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
+""2022-11-17 01:00:16,880 INFO  [main] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.4.32.Final
+""2022-11-17 01:00:17,367 INFO  [main] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2022-11-17 01:00:18,495 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
+""2022-11-17 01:00:19,667 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
+""2022-11-17 01:00:19,733 INFO  [main] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2022-11-17 01:00:22,959 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2022-11-17 01:00:22,983 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 01:00:25,499 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2022-11-17 01:00:27,447 INFO  [main] springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping:Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2022-11-17 01:00:27,961 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-ui.html'] with []
+""2022-11-17 01:00:27,964 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/v2/api-docs'] with []
+""2022-11-17 01:00:27,968 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/configuration/**'] with []
+""2022-11-17 01:00:27,970 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-resources/**'] with []
+""2022-11-17 01:00:27,973 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/webjars/**'] with []
+""2022-11-17 01:00:27,975 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/api-docs/**'] with []
+""2022-11-17 01:00:28,275 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@485a5c9, org.springframework.security.web.context.SecurityContextPersistenceFilter@1235732d, org.springframework.security.web.header.HeaderWriterFilter@149ef64a, org.springframework.security.web.authentication.logout.LogoutFilter@7f6137fb, com.winners.libraryproject.security.jwt.AuthTokenFilter@46c093b4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@a6924ad, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@c2ddfeb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1d397e87, org.springframework.security.web.session.SessionManagementFilter@409df37d, org.springframework.security.web.access.ExceptionTranslationFilter@5c438795, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1a507ea0]
+""2022-11-17 01:00:30,530 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Context refreshed
+""2022-11-17 01:00:30,607 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Found 1 custom documentation plugin(s)
+""2022-11-17 01:00:30,732 INFO  [main] springfox.documentation.spring.web.scanners.ApiListingReferenceScanner:Scanning for api listing references
+""2022-11-17 01:00:31,707 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Started UserRepositoryTest in 23.274 seconds (JVM running for 26.501)
+""2022-11-17 01:00:32,366 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 01:00:32,373 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
+""2022-11-17 01:00:32,452 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
+""2022-11-17 01:01:07,687 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Starting UserRepositoryTest using Java 11.0.16 on DESKTOP-TFKC0CP with PID 1608 (started by basri in C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS)
+""2022-11-17 01:01:07,725 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:No active profile set, falling back to default profiles: default
+""2022-11-17 01:01:12,860 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2022-11-17 01:01:13,215 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 325 ms. Found 7 JPA repository interfaces.
+""2022-11-17 01:01:14,768 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@1310fcb0' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 01:01:14,834 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 01:01:15,774 INFO  [main] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
+""2022-11-17 01:01:16,009 INFO  [main] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.4.32.Final
+""2022-11-17 01:01:16,695 INFO  [main] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2022-11-17 01:01:17,837 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
+""2022-11-17 01:01:18,446 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
+""2022-11-17 01:01:18,517 INFO  [main] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2022-11-17 01:01:22,048 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2022-11-17 01:01:22,077 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 01:01:24,988 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2022-11-17 01:01:27,195 INFO  [main] springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping:Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2022-11-17 01:01:27,858 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-ui.html'] with []
+""2022-11-17 01:01:27,868 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/v2/api-docs'] with []
+""2022-11-17 01:01:27,869 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/configuration/**'] with []
+""2022-11-17 01:01:27,869 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-resources/**'] with []
+""2022-11-17 01:01:27,870 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/webjars/**'] with []
+""2022-11-17 01:01:27,878 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/api-docs/**'] with []
+""2022-11-17 01:01:28,750 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@64dcfd09, org.springframework.security.web.context.SecurityContextPersistenceFilter@5c438795, org.springframework.security.web.header.HeaderWriterFilter@74eae1e0, org.springframework.security.web.authentication.logout.LogoutFilter@496e2bdd, com.winners.libraryproject.security.jwt.AuthTokenFilter@702e21c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5fb58f15, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2e41b65a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@fefd4a2, org.springframework.security.web.session.SessionManagementFilter@7acbd3d0, org.springframework.security.web.access.ExceptionTranslationFilter@480fb706, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7f72855d]
+""2022-11-17 01:01:32,888 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Context refreshed
+""2022-11-17 01:01:32,986 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Found 1 custom documentation plugin(s)
+""2022-11-17 01:01:33,094 INFO  [main] springfox.documentation.spring.web.scanners.ApiListingReferenceScanner:Scanning for api listing references
+""2022-11-17 01:01:33,776 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Started UserRepositoryTest in 27.707 seconds (JVM running for 31.646)
+""2022-11-17 01:01:34,749 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 01:01:34,755 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
+""2022-11-17 01:01:34,773 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
+""2022-11-17 01:04:17,823 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Starting UserRepositoryTest using Java 11.0.16 on DESKTOP-TFKC0CP with PID 19248 (started by basri in C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS)
+""2022-11-17 01:04:17,827 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:No active profile set, falling back to default profiles: default
+""2022-11-17 01:04:21,444 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2022-11-17 01:04:21,676 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 212 ms. Found 7 JPA repository interfaces.
+""2022-11-17 01:04:23,152 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@37e0056e' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 01:04:23,195 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 01:04:23,903 INFO  [main] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
+""2022-11-17 01:04:24,123 INFO  [main] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.4.32.Final
+""2022-11-17 01:04:24,647 INFO  [main] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2022-11-17 01:04:25,494 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
+""2022-11-17 01:04:26,083 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
+""2022-11-17 01:04:26,148 INFO  [main] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2022-11-17 01:04:28,506 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2022-11-17 01:04:28,529 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 01:04:30,534 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2022-11-17 01:04:32,157 INFO  [main] springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping:Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2022-11-17 01:04:32,563 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-ui.html'] with []
+""2022-11-17 01:04:32,564 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/v2/api-docs'] with []
+""2022-11-17 01:04:32,565 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/configuration/**'] with []
+""2022-11-17 01:04:32,565 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-resources/**'] with []
+""2022-11-17 01:04:32,566 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/webjars/**'] with []
+""2022-11-17 01:04:32,567 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/api-docs/**'] with []
+""2022-11-17 01:04:32,796 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@79392584, org.springframework.security.web.context.SecurityContextPersistenceFilter@1f8a1b, org.springframework.security.web.header.HeaderWriterFilter@444fbd13, org.springframework.security.web.authentication.logout.LogoutFilter@7f0b2bf1, com.winners.libraryproject.security.jwt.AuthTokenFilter@c3e5e3c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@11ec699, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7f219e84, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@cf82c58, org.springframework.security.web.session.SessionManagementFilter@179f30b7, org.springframework.security.web.access.ExceptionTranslationFilter@2b9a7211, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@66e27ac9]
+""2022-11-17 01:04:34,478 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Context refreshed
+""2022-11-17 01:04:34,542 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Found 1 custom documentation plugin(s)
+""2022-11-17 01:04:34,615 INFO  [main] springfox.documentation.spring.web.scanners.ApiListingReferenceScanner:Scanning for api listing references
+""2022-11-17 01:04:35,331 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Started UserRepositoryTest in 18.451 seconds (JVM running for 21.256)
+""2022-11-17 01:04:35,925 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 01:04:35,930 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
+""2022-11-17 01:04:35,949 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
+""2022-11-17 01:05:24,084 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Starting UserRepositoryTest using Java 11.0.16 on DESKTOP-TFKC0CP with PID 21620 (started by basri in C:\Users\basri\IdeaProjects\LIBRARY_PROJECT_WINNERS)
+""2022-11-17 01:05:24,090 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:No active profile set, falling back to default profiles: default
+""2022-11-17 01:05:26,995 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2022-11-17 01:05:27,277 INFO  [main] org.springframework.data.repository.config.RepositoryConfigurationDelegate:Finished Spring Data repository scanning in 260 ms. Found 7 JPA repository interfaces.
+""2022-11-17 01:05:28,444 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@27976390' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 01:05:28,492 INFO  [main] org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2022-11-17 01:05:29,087 INFO  [main] org.hibernate.jpa.internal.util.LogHelper:HHH000204: Processing PersistenceUnitInfo [name: default]
+""2022-11-17 01:05:29,227 INFO  [main] org.hibernate.Version:HHH000412: Hibernate ORM core version 5.4.32.Final
+""2022-11-17 01:05:29,612 INFO  [main] org.hibernate.annotations.common.Version:HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2022-11-17 01:05:30,403 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Starting...
+""2022-11-17 01:05:30,963 INFO  [main] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Start completed.
+""2022-11-17 01:05:31,000 INFO  [main] org.hibernate.dialect.Dialect:HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2022-11-17 01:05:34,911 INFO  [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2022-11-17 01:05:34,936 INFO  [main] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 01:05:37,570 WARN  [main] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2022-11-17 01:05:40,578 INFO  [main] springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping:Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2022-11-17 01:05:41,291 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-ui.html'] with []
+""2022-11-17 01:05:41,292 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/v2/api-docs'] with []
+""2022-11-17 01:05:41,297 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/configuration/**'] with []
+""2022-11-17 01:05:41,301 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/swagger-resources/**'] with []
+""2022-11-17 01:05:41,308 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/webjars/**'] with []
+""2022-11-17 01:05:41,309 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure Ant [pattern='/api-docs/**'] with []
+""2022-11-17 01:05:41,872 INFO  [main] org.springframework.security.web.DefaultSecurityFilterChain:Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2bc52b08, org.springframework.security.web.context.SecurityContextPersistenceFilter@29390110, org.springframework.security.web.header.HeaderWriterFilter@261c5d1f, org.springframework.security.web.authentication.logout.LogoutFilter@4eee730c, com.winners.libraryproject.security.jwt.AuthTokenFilter@7f065f9e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@17e725fb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2b9a7211, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6b578779, org.springframework.security.web.session.SessionManagementFilter@5b908c6d, org.springframework.security.web.access.ExceptionTranslationFilter@495a9305, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2b0d6bf2]
+""2022-11-17 01:05:45,117 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Context refreshed
+""2022-11-17 01:05:45,198 INFO  [main] springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper:Found 1 custom documentation plugin(s)
+""2022-11-17 01:05:45,305 INFO  [main] springfox.documentation.spring.web.scanners.ApiListingReferenceScanner:Scanning for api listing references
+""2022-11-17 01:05:46,054 INFO  [main] com.winners.libraryproject.repository.UserRepositoryTest:Started UserRepositoryTest in 22.842 seconds (JVM running for 25.945)
+""2022-11-17 01:05:47,436 INFO  [SpringApplicationShutdownHook] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:Closing JPA EntityManagerFactory for persistence unit 'default'
+""2022-11-17 01:05:47,442 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown initiated...
+""2022-11-17 01:05:47,461 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource:HikariPool-1 - Shutdown completed.
 "
