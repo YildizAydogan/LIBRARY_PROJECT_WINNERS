@@ -21,6 +21,9 @@ import org.springframework.stereotype.Service;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import java.util.List;
@@ -52,10 +55,15 @@ public class BookService {
 
         Book book = new Book();
 
+        book.setName(bookDTO.getName());
+        book.setIsbn(bookDTO.getIsbn());
+        book.setPageCount(bookDTO.getPageCount());
         book.setAuthorId(bookDTO.getAuthorId());
-        book.setCategoryId(bookDTO.getCategoryId());
         book.setPublisherId(bookDTO.getPublisherId());
-
+        book.setPublishDate(bookDTO.getPublishDate());
+        book.setCategoryId(bookDTO.getCategoryId());
+        book.setImage(bookDTO.getImage());
+        book.setShelfCode(bookDTO.getShelfCode());
 
         bookRepository.save(book);
 
@@ -108,7 +116,13 @@ public class BookService {
         book.setAuthorId(bookUpdateDTO.getAuthorId());
         book.setCategoryId(bookUpdateDTO.getCategoryId());
         book.setPublisherId(bookUpdateDTO.getPublisherId());
-
+        book.setName(bookUpdateDTO.getName());
+        book.setIsbn(bookUpdateDTO.getIsbn());
+        book.setPageCount(bookUpdateDTO.getPageCount());
+        book.setPublishDate(bookUpdateDTO.getPublishDate());
+        book.setImage(bookUpdateDTO.getImage());
+        book.setShelfCode(bookUpdateDTO.getShelfCode());
+        book.setCreateDate(foundedBook.getCreateDate());
 
         bookRepository.save(book);
         return book;
