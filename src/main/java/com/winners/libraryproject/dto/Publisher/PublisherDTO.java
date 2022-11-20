@@ -1,6 +1,5 @@
 package com.winners.libraryproject.dto.Publisher;
 
-import com.RL.domain.Book;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
