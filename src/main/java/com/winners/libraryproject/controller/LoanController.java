@@ -1,12 +1,13 @@
 package com.winners.libraryproject.controller;
 
 
-import com.winners.libraryproject.dto.LoanDTO;
-import com.winners.libraryproject.dto.UserToUserDTO;
+import com.winners.libraryproject.dto.Loan.LoanCreatorDTO;
+import com.winners.libraryproject.dto.Loan.LoanDTO;
+import com.winners.libraryproject.dto.Loan.LoanUpdateResponse;
+import com.winners.libraryproject.dto.Loan.UpdateLoanDTO;
 import com.winners.libraryproject.entity.Loan;
 import com.winners.libraryproject.service.LoanService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -16,106 +17,105 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/loans")
+@RequestMapping()
 public class LoanController {
 
-    /* 1-Role ayarlamaları yapılacak
-
-     */
 
     @Autowired
     LoanService loanService;
 
-//-----------------LOANS----search------------------------------
+    //-----------------LOANS----search------------------------------
+    @PreAuthorize("hasRole('MEMBER')")
+    @GetMapping("/loans")
+    public ResponseEntity<List<Loan>> getLoansWithPageByUserId(HttpServletRequest request,
+                                                               @RequestParam("page") int page,
+                                                               @RequestParam("size") int size,
+                                                               @RequestParam("sort") String prop,
+                                                               @RequestParam("direction") Sort.Direction direction) {
 
-    @GetMapping()
-    public ResponseEntity<List<Loan>>getLoansWithPageByUserId(HttpServletRequest request,
-                                                              @RequestParam ("page") int page,
-                                                              @RequestParam("size") int size,
-                                                              @RequestParam("sort") String prop,
-                                                              @RequestParam("direction") Sort.Direction direction){
+        Long userId = (Long) request.getAttribute("id");
 
-        Long userId=(Long)request.getAttribute("id");
-
-        Pageable pageable= PageRequest.of(page, size, Sort.by(direction,prop));
-        List<Loan>loans=loanService.findLoansWithPageByUserId(userId,pageable);
+        Pageable pageable = PageRequest.of(page, size, Sort.by(direction, prop));
+        List<Loan> loans = loanService.findLoansWithPageByUserId(userId, pageable);
         return new ResponseEntity<>(loans, HttpStatus.OK);
 
     }
 
-    /*
-@GetMapping("")
-@PreAuthorize("hasRole('MEMBER')")
-public ResponseEntity<LoanDTO> getAllLoansByUser(HttpServletRequest request){
-
-
-    Long userId = (long)request.getAttribute("id");
-    LoanDTO loanDTO=loanService.findAllLoansByUser(userId);
-    return ResponseEntity.ok(loanDTO);
-}
-*/
-    /*  @GetMapping("")
-    @PreAuthorize("hasRole('MEMBER')")
-    public ResponseEntity<Page<LoanDTO>> getAllLoansByUser(@RequestParam("page") int page,
-                                                                     @RequestParam("size") int size,
-                                                                     @RequestParam("sort") String prop,
-                                                                     @RequestParam("type") Sort.Direction type,
-                                                                     HttpServletRequest request){
-
-        Pageable pageable= PageRequest.of(page, size, Sort.by(type, prop));
-        Long userId = (long)request.getAttribute("id");
-        Page<LoanDTO> loanDTOPageable=loanService.findAllLoansByUser(userId,pageable);
-        return ResponseEntity.ok(loanDTOPageable);
-    }
-    
-    */
 
 //-----------------LOANS/:id----------------------------------
 
-    /* 1- Sadece ilgili kullanıcı erişmeli
-
-
-
-
-    @GetMapping("/{id}")
     @PreAuthorize("hasRole('MEMBER')")
-    public ResponseEntity<Loan> getLoanById(@PathVariable Long loanId, HttpServletRequest request) {
+    @GetMapping("/loans/{id}")
+    public ResponseEntity<Loan> getLoanById(HttpServletRequest request,
+                                            @PathVariable(value = "id") Long loanId) {
 
-        Long userId = (long)request.getAttribute("id");
-        Loan loan = loanService.getLoanById(loanId,userId);
-        return ResponseEntity.ok(loan);
+        Long userId = (Long) request.getAttribute("id");
+        Loan loan = loanService.getByIdAndUserId(loanId, userId);
+
+        return new ResponseEntity<>(loan, HttpStatus.OK);
     }
- */
-//-----------------/loans/user/:userId---------search-------------------------
 
 
-// -----------------/loans/book/:bookId---------search-------------------------
+    //-----------------/loans/user/:userId---------search-------------------------
+    @PreAuthorize("hasRole('ADMIN') or hasRole('EMPLOYEE')")
+    @GetMapping("/loans/user/{userId}")
+    public ResponseEntity<List<LoanDTO>> findAllLoansByUserId(@PathVariable Long userId,
+                                                              @RequestParam("page") int page,
+                                                              @RequestParam("size") int size,
+                                                              @RequestParam("sort") String prop,
+                                                              @RequestParam("direction") Sort.Direction direction) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by(direction, prop));
 
 
-//-----------------/loans/auth/:loanId----------------------------------
-/*
-    @GetMapping("/auth/{id}")
-    @PreAuthorize("hasRole('EMPLOYEE') or hasRole('ADMIN')")
-    public ResponseEntity<LoanDTO> getAnyLoansById(@PathVariable Long id) {
-        LoanDTO loan = loanService.getLoansById(id);
-        return ResponseEntity.ok(loan);
+        List<LoanDTO> loansDTO = loanService.findAllLoansByUserId(userId, pageable);
+        return new ResponseEntity<>(loansDTO, HttpStatus.OK);
+
     }
-*/
+
+    // -----------------/loans/book/:bookId---------search-------------------------
+    @PreAuthorize("hasRole('ADMIN') or hasRole('EMPLOYEE')")
+    @GetMapping("/loans/book/{bookId}")
+    public ResponseEntity<List<Loan>> findLoanedBookByBookId(@PathVariable Long bookId,
+                                                             @RequestParam("page") int page,
+                                                             @RequestParam("size") int size,
+                                                             @RequestParam("sort") String prop,
+                                                             @RequestParam("direction") Sort.Direction direction) {
+
+        Pageable pageable = PageRequest.of(page, size, Sort.by(direction, prop));
+        List<Loan> loans = loanService.getLoanedBookByBookId(bookId, pageable);
+
+        return new ResponseEntity<>(loans, HttpStatus.OK);
+
+    }
+
+    //-----------------/loans/auth/:loanId----------------------------------
+    @PreAuthorize("hasRole('ADMIN') or hasRole('EMPLOYEE')")
+    @GetMapping("/loans/auth/{id}")
+    public ResponseEntity<Loan> getLoanWithId(@PathVariable(value = "id") Long loanId) {
+        Loan loan = loanService.getLoanById(loanId);
+        return new ResponseEntity<>(loan, HttpStatus.OK);
+
+    }
 
 //-----------------/loans put----------------------------------
-
-
+    @PreAuthorize("hasRole('ADMIN') or hasRole('EMPLOYEE')")
+    @PostMapping("/loans")
+    public ResponseEntity<Loan> createLoan(@Valid @RequestBody LoanCreatorDTO loanCreatorDTO){
+       Loan loan = loanService.create(loanCreatorDTO);
+        return new ResponseEntity<>(loan, HttpStatus.OK);
+    }
 //-----------------/loans/:id put----------------------------------
-
-
-
-
-
-
-
-
+@PutMapping("/loans/{id}")
+@PreAuthorize("hasRole('ADMIN') or  hasRole('EMPLOYEE')")
+public ResponseEntity<LoanUpdateResponse> updateLoan(@PathVariable(value = "id") Long loanId,
+                                                     @Valid @RequestBody UpdateLoanDTO updateLoanDTO
+) {
+    LoanUpdateResponse updatedLoanResponse =loanService.updateLoan(loanId, updateLoanDTO);
+    return new ResponseEntity<>(updatedLoanResponse, HttpStatus.OK);
+}
 
 }

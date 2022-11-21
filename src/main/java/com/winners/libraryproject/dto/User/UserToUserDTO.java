@@ -1,4 +1,4 @@
-package com.winners.libraryproject.dto;
+package com.winners.libraryproject.dto.User;
 
 import com.winners.libraryproject.entity.Loan;
 import com.winners.libraryproject.entity.User;

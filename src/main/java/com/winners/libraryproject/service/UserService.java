@@ -1,6 +1,6 @@
 package com.winners.libraryproject.service;
 
-import com.winners.libraryproject.dto.*;
+import com.winners.libraryproject.dto.User.*;
 import com.winners.libraryproject.entity.Role;
 import com.winners.libraryproject.entity.User;
 import com.winners.libraryproject.entity.enumeration.UserRole;
@@ -56,6 +56,9 @@ public class UserService {
         roles.add(memberRole);
 
         user.setRoles(roles);
+        
+        //TODO olusturulan DTO user entity.e map edilmesi gerekir
+        
 
         User userresult=userRepository.save(user);
 
@@ -78,18 +81,25 @@ public class UserService {
 
 
     public void removeById(Long id){
-        User user = userRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException(String.format(USER_NOT_FOUND_MSG, id)));
-
-        userRepository.deleteById(id);
+        
+        try {
+            userRepository.findById(id);
+            userRepository.deleteById(id);
+        } catch (SecurityException e){
+            throw new ResourceNotFoundException(String.format(USER_NOT_FOUND_MSG, id));
+        } catch (Exception e){
+            // buraya log verilmeli
+        }
+        
     }
 
     public void login(String email,String password) throws AuthException {
         try {
             Optional<User> user= userRepository.findByEmail(email);
 
-            if (!BCrypt.checkpw(password, user.get().getPassword()))
+            if (!BCrypt.checkpw(password, user.get().getPassword())){
                 throw new AuthException("invalid credentials");
+            }                
 
         }catch (Exception e){
             throw new AuthException("invalid credentials");
