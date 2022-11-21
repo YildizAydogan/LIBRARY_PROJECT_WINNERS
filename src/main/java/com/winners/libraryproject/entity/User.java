@@ -91,7 +91,7 @@ public class User {
     @OneToMany(mappedBy = "userId")
     private Set<Loan> loans;
 
-   /* public Set<String> getRole(){
+    public Set<String> getRole(){
         Set<String>roles1=new HashSet<>();
 
         Role[] role=roles.toArray(new Role[roles.size()]);
@@ -106,6 +106,6 @@ public class User {
         }
         return roles1;
     }
-*/
+
 
 }
