@@ -22,7 +22,7 @@ public class AuthorService {
 
     public Author createAuthor(AuthorDTO authorDTO) {
         Author author = new Author();
-        author.setName(author.getName());
+        author.setName(authorDTO.getName());
         repository.save(author);
         return author;
     }
